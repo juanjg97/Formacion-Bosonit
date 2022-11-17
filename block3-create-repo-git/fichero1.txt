@@ -1,1 +1,2 @@
 Primera línea de ichero 1
+Segunda línea fichero2
