@@ -1,0 +1,2 @@
+Primera línea fichero2
+Segunda línea fichero2
