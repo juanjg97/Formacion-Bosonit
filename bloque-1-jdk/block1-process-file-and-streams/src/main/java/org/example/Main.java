@@ -3,31 +3,19 @@ package org.example;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
-        String file = "bloque-1-jdk/block1-process-file-and-streams/src/fichero.csv";
-        BufferedReader reader = null;
-        String line = "";
+        Archivo Datos = new Archivo();
 
-        try {
-            reader = new BufferedReader(new FileReader(file));
-            while((line=reader.readLine()) != null){
-                String[] row = line.split(":");
-                for(String index:row){
-                    System.out.printf("%-10s",index);
-                }
-                System.out.println();
-            }
-        }catch(Exception e) {
-            e.printStackTrace();
-        }finally{
-            try{
-                reader.close();
-            }catch(IOException e){
-                e.printStackTrace();
-            }
+        try{
+            String ruta = "bloque-1-jdk/block1-process-file-and-streams/src/test/fichero.csv";
+            List<String> textoDelArchivo = Datos.leer_fichero(ruta);
+            System.out.println("Los datos originales en el archivo son: "+textoDelArchivo);
+        }catch (Exception e){
+            System.out.println(e);
         }
     }
 }

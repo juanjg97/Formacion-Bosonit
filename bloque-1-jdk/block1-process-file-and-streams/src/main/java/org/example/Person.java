@@ -1,47 +1,48 @@
 package org.example;
 
+import java.util.Optional;
+
 public class Person {
+    private String nombre;
+    private Optional<Integer> edad;
+    private String ciudad;
 
-    //Atributos de la clase
-    String name = "";
-    String town = "";
-    int age = 0;
-
-    //Constructores
-    //1.- En caso de que se den todos los valores
-    public Person(String name, String town, int age){
-        this.name = name;
-        this.town=town;
-        this.age=age;
-    }
-    //2.- En caso de que sólo se de la ciudad
-    public Person(String name){
-        this.name=name;
-    }
-    //3.- En caso de que se de el nombre y la ciudad
-    public Person(String name, String town){
-        this.name = name;
-        this.town=town;
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "nombre='" + nombre + '\'' +
+                ", edad=" + edad +
+                ", ciudad='" + ciudad + '\'' +
+                '}';
     }
 
-    //4.- En caso de que se de el nombre y la edad
-    public Person(String name, int age){
-        this.name = name;
-        this.age=age;
+    public Person(String nombre, Integer edad, String ciudad) {
+        this.nombre = nombre;
+        this.edad = Optional.of(edad);
+        this.ciudad = ciudad;
     }
 
-    public void mostrarDatos(){
-        String mensaje = "";
-        if(this.age==0){
-            mensaje= "Name: "+ this.name + " Town: " + this.town + " Age: " + "unknow";
-        }
-        if(this.town.equals("")){
-            mensaje= "Name: " + this.name + " Town: " + "unknown" + " Age: " +  this.age;
-        }
-        if(this.age == 0 && this.town.equals("")){
-            mensaje= "Name: " + this.name + " Town: " + "unknown" + " Age: " + "unknown";
-        }
-        mensaje= "Name: " + this.name + " Town: " + this.town + " Age: " + this.age ;
-        System.out.println(mensaje);
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Optional<Integer> getEdad() {
+        return edad;
+    }
+
+    public void setEdad(Integer edad) {
+        this.edad = Optional.of(edad);
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 }
