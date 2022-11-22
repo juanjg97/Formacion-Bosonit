@@ -9,6 +9,7 @@
         <module name="block5-command-line-runner" />
         <module name="block3-maven-package" />
         <module name="demo" />
+        <module name="demo (1)" />
         <module name="block1-process-file-and-streams" />
       </profile>
     </annotationProcessing>
