@@ -7,16 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="demo (2)" />
+        <module name="demo (1)" />
+        <module name="demo (3)" />
         <module name="block5-command-line-runner" />
-        <module name="block5-profiles" />
         <module name="AbstraccionInterfaces" />
-        <module name="block6-simple-controllers" />
-        <module name="block3-maven-package" />
         <module name="demo" />
+        <module name="block3-maven-package" />
         <module name="block1-process-file-and-streams" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="block5-profiles" target="19" />
       <module name="block6-simple-controllers" target="19" />
     </bytecodeTargetLevel>
   </component>
@@ -26,6 +28,9 @@
       <module name="block5-profiles" options="-parameters" />
       <module name="block6-simple-controllers" options="-parameters" />
       <module name="demo" options="-parameters" />
+      <module name="demo (1)" options="-parameters" />
+      <module name="demo (2)" options="-parameters" />
+      <module name="demo (3)" options="-parameters" />
     </option>
   </component>
 </project>
