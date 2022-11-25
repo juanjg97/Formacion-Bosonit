@@ -9,12 +9,16 @@
         <outputRelativeToContentRoot value="true" />
         <module name="block5-command-line-runner" />
         <module name="block5-profiles" />
+        <module name="AbstraccionInterfaces" />
         <module name="block6-simple-controllers" />
         <module name="block3-maven-package" />
         <module name="demo" />
         <module name="block1-process-file-and-streams" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="block6-simple-controllers" target="19" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
