@@ -30,7 +30,7 @@ public class Main {
     int z = 0;
     //Variable estática
     static int y=0;
-//----------------------------------------------------
+    //----------------------------------------------------
     public static void main(String[] args) {
 
         //Uso de variables en el método estático maín usando el bloque estático

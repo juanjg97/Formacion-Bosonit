@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="b-Statics" />
+        <module name="d-ErroresExcepciones" />
         <module name="a-AbstraccionInterfaces" />
         <module name="demo (2)" />
         <module name="c-Wrapper" />
@@ -20,12 +21,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="a-AbstraccionInterfaces" target="19" />
-      <module name="b-Statics" target="19" />
+      <module name="AbstraccionInterfaces" target="19" />
       <module name="block5-profiles" target="19" />
       <module name="block6-simple-controllers" target="19" />
-      <module name="c-Wrapper" target="19" />
       <module name="EjerciciosJava" target="19" />
+      <module name="Statics" target="19" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
