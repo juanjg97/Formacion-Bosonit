@@ -1,13 +1,15 @@
 package org.example;
 
-//Se usa polimorfismo al sobreescribir los métodos en las clases hijas
-
 public class Main {
 
 
     public static void main(String[] args) {
         //Creación de los objetos
+
+        //Objeto que hereda e implementa
         Circulo circulo_1 = new Circulo("Rojo",5);
+
+        //Objeto que sólo implementa
         Imagen imagen_1 = new Imagen();
 
         //Uso de las funciones de la clase Figura, herencia y abstracción

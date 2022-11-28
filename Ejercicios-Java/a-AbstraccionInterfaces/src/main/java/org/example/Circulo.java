@@ -1,5 +1,7 @@
 package org.example;
 
+//Clase hija que hereda de figura
+//Clase que implementa la interdaz dibujable
 public class Circulo extends Figura implements Dibujable{
     //Atributos
     private double radio;
@@ -16,12 +18,15 @@ public class Circulo extends Figura implements Dibujable{
     public void setRadio(double radio) {
         this.radio = radio;
     }
-    //Métodos
+
+    //Métodos------------------
+
     //Sobre escribe un método de una clase abstracta
     @Override
     public double calcularArea() {
         return Math.PI*Math.pow(getRadio(),2);
     }
+
     //Sobreescribe un método de una interfaz
     @Override
     public void dibujar() {

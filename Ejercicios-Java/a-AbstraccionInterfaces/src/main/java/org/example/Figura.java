@@ -1,6 +1,7 @@
 package org.example;
 
-//Clase padre abstracta
+//Clase padre abstracta, no se pueden crear objetos de esta clase, sin embargo las clases hijas que hereden
+//tendrán sus atributos y deberán sobreescribir sus métodos.
 
 //Si tenemos un método abstracto la clase también debe ser abstracta
 public abstract class Figura {
@@ -19,6 +20,7 @@ public abstract class Figura {
     public void setColor(String color) {
         this.color = color;
     }
+
     //Métodos----------------------------------------------------------
     public abstract double calcularArea();
 
