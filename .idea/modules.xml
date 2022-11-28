@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Formacion-Bosonit.iml" filepath="$PROJECT_DIR$/.idea/Formacion-Bosonit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ejercicios-Java/AbstraccionInterfaces/a-AbstraccionInterfaces.iml" filepath="$PROJECT_DIR$/Ejercicios-Java/AbstraccionInterfaces/a-AbstraccionInterfaces.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ejercicios-Java/Statics/b-Statics.iml" filepath="$PROJECT_DIR$/Ejercicios-Java/Statics/b-Statics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/c-Wrapper.iml" filepath="$PROJECT_DIR$/c-Wrapper.iml" />
     </modules>
   </component>
 </project>
