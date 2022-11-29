@@ -1,0 +1,136 @@
+----------------------------------------------
+Inyección de dependencias.
+
+La inyección de dependencias es un patrón de diseño que tiene como objetivo tomar la responsabilidad de crear las instancias de las clases que otro objeto necesita y suministrárselo para que esta clase los pueda utilizar.
+
+Spring maneja el concepto de IoC (Inversion of Control) ocupándose de mantener en su ‘contexto’ todas las instancias de nuestra aplicación y de inyectarle esa instancia a quien la necesite.
+
+Spring llama a estas instancias beans .
+
+Beans: 
+
+Son las instancias de las clases que están disponibles para ser reutilizados y son gestionados dentro del contenedor de Spring.
+
+
+La anotación general para indicar que queremos que una clase sea gestionada por el contenedor de Spring es @Component .
+
+Al anotar nuestra clase con @Component le decimos a Spring que deseamos que esa clase sea un bean .
+
+Mayor cohesión (especialización) y menor acoplamiento (dependencia entre clases)
+
+
+----------------------------------------------
+Explicación Ejemplo Chuchi Videp 1
+
+1.- Cuando springboot arranca hace un escaneo de nuestras clases.
+
+2.- Si encuentra una clase que tenga un @Component, la metes en un contexto de tal manera que luego en cualquier otra clase que tenga un [@Autowired y que además SpringBoot haya inicializado **]
+
+
+** Es decir que la clase tenga un @Component, @RestController, si no el @Autowired no tiene efecto
+
+-------------------------------------------
+Ejemplo en IDE
+
+1.- Se ejecuta el método main, se usa la clase SpringApplication que llama al método run.
+
+2.- Utilizando reflexión con una serie de librerías Java que permiten inspeccionar el programa, las propias clases existentes.
+
+3.- Cuando arranque el método run, inspecciona la clase que contiene el método main, revisa a qué paquete pertenece dicha clase y también ejecutará todas las clases que estén debajo de ese paquete.
+
+------------------------------
+Controllers.
+
+Un controller es un componente de Spring capaz de recibir peticiones http y responderlas.
+
+Las clases que definimos como un controller es responsable de procesar las request que ingresan a nuestra aplicacion, validarlas y dar una response.
+
+Un rest controller 
+
+Es un tipo de controller que reciben peticiones con un formato de específico que cumple con formatos de solicitud RESTful habitualmente y mayormente en JSON , aunque a veces se usan otros como HTML, XML, o simplemente texto.
+
+----
+Crear un restcontroller
+
+1.- Agregar un @RestController a la clase que usaremos como controlador
+Con esto Spring ya sabe que esa clase será un componente encargado de recibir llamadas.
+
+2.- Ahora definimos el método y la ruta en la cual recibirá la llamada externa.
+
+Agregamos un @GetMapping al método que dará una respuesta, dentro de la anotación indicamos el path y dentro del método anotamos la respuesta que queremos que el usuario reciba cuando accede a ese path.
+---
+OJO: Springboot no sólo escanea y ejecuta la clase del controllador, tambíen crear un objeto de esa clase
+
+---------------------------------------
+Componentes
+
+Un component es lo que le permite a Spring detectar los beans y colocarlos dentro de su contexto para ser utilizados.
+
+Cuando indicamos que una clase es un @Component, lo que hacemos es decirle a Spring que queremos que cree una instancia y la gestione.
+
+Al momento de inicializar la aplicación, Spring hará lo siguiente:
+
+- Buscará dentro de la aplicación las clases anotadas con @Component
+- Creará una instancia de los componentes
+- Dejará el componente en su contexto
+- Buscará quién necesita esos componentes y los inyectará en quién los necesite.
+
+1.- Creamos una clase componente 1, esto sólo para que springoot cree un objeto de esa clase.
+
+¿Para qué queremos esas instancias?
+Springboot guarda ese objeto en su entorno, puedo solicitar al entorno que me devuelva una referencia a ese objeto
+
+2.- Vamos a la clase Controlador1 y dentro de la clase utilizamos la anotación @Autowired
+
+----------------------------------
+@Autowired
+
+Anotación que permite inyectar unas dependencias con otras dentro de Spring .
+
+Cuando spring encuentro el @Autowired, va a asignar a la variable c1 de tipo Controlador1 a la referencia que se creo cuando springboot instancio la clase Controlador1
+
+
+
+------------------------------------------
+Explicación Chuchi video 2
+
+1.- Otra manera de inyectar dependencias es sin @Autowired, para esto sólo colocamos Componente1 c2 y después, éste objeto lo agregamos como parámetro en el constructor de la clase donde vayamos a inyectar las dependencias (digamos clase A).
+
+2.- Springboot al instanciar la clase A, verá que en su constructor necesita dicho objeto, entonces lo buscará dentro de su contexto y lo mandará al constructor.
+
+3.- Se recomienda éste método para el testing.
+
+-------------------------------------------
+Video 3
+
+Beans.
+
+1.-Creamos una clase configuracionBeans y usamos la anotación @Configuration 
+
+2.- Dentro de la clase usamos la anotación @Beans y agregamos un Método que devuelva el componente que queremos.
+
+3.- En el controlador1 podemos usar @Autowired para crear un objeto de la clase ComponenteB3
+
+--------------------------------------------
+Video 4
+- Para que los beans no sean duplicados, al momento de ponerlos en el constructor del controlador, es importante que la variable se llame igual que la Clase o igual al método declarado en ConfiguracionesBeans.
+
+-Para evitar los duplicados podemos utilizar:
+
+-----
+1.- @Qualifier en la clase configuracionesBeans en el método para instanciar la clase.
+
+	-Poner @Qualifier debajo del autowired en el controlador
+	-Poner @Qualifier en el constructor del controlador
+
+-----
+2.- Poner @Qualifier debajo de @Component en la clase Componente
+
+	-Poner @Qualifier debajo del autowired en el controlador
+	-Poner @Qualifier en el constructor del controlador
+
+IMPORTANTE.
+
+Es recomendable que los componentes en lugar de clases sean Interface
+
+Los Interface también pueden implementar @Qualifiers
