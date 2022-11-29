@@ -1,8 +1,9 @@
 package com.example.demo;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Component
 public class Componente4 implements Componente4Interface{
 
     private String nombre = "Mi nombre es clase 4";
