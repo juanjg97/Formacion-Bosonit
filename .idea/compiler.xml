@@ -13,10 +13,10 @@
         <module name="demo" />
         <module name="block3-maven-package" />
         <module name="b-Statics" />
-        <module name="a-AbstraccionInterfaces" />
         <module name="demo (2)" />
         <module name="c-Wrapper" />
         <module name="demo (1)" />
+        <module name="demo (4)" />
         <module name="demo (3)" />
         <module name="block5-command-line-runner" />
         <module name="block1-process-file-and-streams" />
@@ -28,6 +28,7 @@
       <module name="block5-profiles" target="19" />
       <module name="block6-simple-controllers" target="19" />
       <module name="EjerciciosJava" target="19" />
+      <module name="f-Lambdas" target="19" />
       <module name="Statics" target="19" />
     </bytecodeTargetLevel>
   </component>
@@ -40,6 +41,7 @@
       <module name="demo (1)" options="-parameters" />
       <module name="demo (2)" options="-parameters" />
       <module name="demo (3)" options="-parameters" />
+      <module name="demo (4)" options="-parameters" />
     </option>
   </component>
 </project>

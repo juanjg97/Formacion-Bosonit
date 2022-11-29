@@ -5,6 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+class Prueba{
+    public void saludar(){
+        System.out.println("Hello");
+    }
+}
+
 class Personas{
     private String nombre;
     private int edad;
@@ -76,6 +82,7 @@ public class Streams {
         //Resultados
         System.out.println("Personas selectas sin usar stream: "+resultado1);
         System.out.println("Personas selectas usando stream: "+resultado2);
+
 
     }
 }
