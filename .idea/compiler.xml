@@ -7,17 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="b-Statics" />
         <module name="d-ErroresExcepciones" />
+        <module name="f-Lambdas" />
+        <module name="e-ClasesAnonimas" />
+        <module name="demo" />
+        <module name="block3-maven-package" />
+        <module name="b-Statics" />
         <module name="a-AbstraccionInterfaces" />
         <module name="demo (2)" />
         <module name="c-Wrapper" />
-        <module name="e-ClasesAnonimas" />
         <module name="demo (1)" />
         <module name="demo (3)" />
         <module name="block5-command-line-runner" />
-        <module name="demo" />
-        <module name="block3-maven-package" />
         <module name="block1-process-file-and-streams" />
       </profile>
     </annotationProcessing>
