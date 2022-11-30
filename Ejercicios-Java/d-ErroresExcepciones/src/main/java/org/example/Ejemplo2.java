@@ -9,9 +9,9 @@ public class Ejemplo2 {
             System.out.println("Valor de la división "+y);
 
             String nombre = "Juan"; //null
-            System.out.println(nombre.toString());
+            System.out.println(nombre);
 
-            int arreglo [] = {1,2,3};
+            int[] arreglo = {1,2,3};
             System.out.println(arreglo[3]);
 
         }catch (ArithmeticException e1){

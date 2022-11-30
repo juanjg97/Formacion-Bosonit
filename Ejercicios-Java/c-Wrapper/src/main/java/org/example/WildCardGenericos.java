@@ -13,7 +13,7 @@ public class WildCardGenericos {
           suma=suma+numero;
       }
       return suma;
-    };
+    }
 
     //Sin saber de qué tipo son los argumentos, pero los convertiremos a double
     static double sumarValores2(List<? extends Number> lista_valores){
@@ -22,7 +22,7 @@ public class WildCardGenericos {
             suma=suma+(numero.doubleValue());
         }
         return suma;
-    };
+    }
 
     public static void main(String[] args) {
         double res1,res2,res3;

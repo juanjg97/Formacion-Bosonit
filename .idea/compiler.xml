@@ -19,6 +19,7 @@
         <module name="demo (4)" />
         <module name="demo (3)" />
         <module name="block5-command-line-runner" />
+        <module name="block6-person-controllers" />
         <module name="block1-process-file-and-streams" />
       </profile>
     </annotationProcessing>
@@ -26,9 +27,8 @@
       <module name="a-AbstraccionInterfaces" target="19" />
       <module name="AbstraccionInterfaces" target="19" />
       <module name="block5-profiles" target="19" />
-      <module name="block6-simple-controllers" target="19" />
+      <module name="demo (3)" target="19" />
       <module name="EjerciciosJava" target="19" />
-      <module name="f-Lambdas" target="19" />
       <module name="Statics" target="19" />
     </bytecodeTargetLevel>
   </component>
@@ -36,6 +36,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="block5-command-line-runner" options="-parameters" />
       <module name="block5-profiles" options="-parameters" />
+      <module name="block6-person-controllers" options="-parameters" />
       <module name="block6-simple-controllers" options="-parameters" />
       <module name="demo" options="-parameters" />
       <module name="demo (1)" options="-parameters" />

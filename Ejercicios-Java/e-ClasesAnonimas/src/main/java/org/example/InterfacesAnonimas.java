@@ -1,7 +1,7 @@
 package org.example;
 
-abstract interface Jugable{
-    abstract void jugar();
+interface Jugable{
+    void jugar();
 }
 
 public class InterfacesAnonimas {
