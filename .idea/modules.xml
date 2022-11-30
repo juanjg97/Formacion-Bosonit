@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Formacion-Bosonit.iml" filepath="$PROJECT_DIR$/.idea/Formacion-Bosonit.iml" />
-      <module fileurl="file://$USER_HOME$/Downloads/block6-person-controllers/block6-person-controllers.iml" filepath="$USER_HOME$/Downloads/block6-person-controllers/block6-person-controllers.iml" />
-      <module fileurl="file://$PROJECT_DIR$/f-Lambdas.iml" filepath="$PROJECT_DIR$/f-Lambdas.iml" />
     </modules>
   </component>
 </project>
