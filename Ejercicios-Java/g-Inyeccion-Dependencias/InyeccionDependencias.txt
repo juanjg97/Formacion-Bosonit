@@ -107,7 +107,7 @@ Beans.
 
 1.-Creamos una clase configuracionBeans y usamos la anotación @Configuration 
 
-2.- Dentro de la clase usamos la anotación @Beans y agregamos un Método que devuelva el componente que queremos.
+2.- Dentro de la clase usamos la anotación @Beans y agregamos un Método que devuelva el componente (clase sin @Component)que queremos.
 
 3.- En el controlador1 podemos usar @Autowired para crear un objeto de la clase ComponenteB3
 

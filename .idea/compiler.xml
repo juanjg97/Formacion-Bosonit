@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="d-ErroresExcepciones" />
         <module name="e-ClasesAnonimas" />
+        <module name="Controladores" />
         <module name="demo" />
         <module name="block3-maven-package" />
         <module name="b-Statics" />
@@ -35,6 +36,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Controladores" options="-parameters" />
       <module name="block5-command-line-runner" options="-parameters" />
       <module name="block5-profiles" options="-parameters" />
       <module name="block6-path-variable-headers" options="-parameters" />

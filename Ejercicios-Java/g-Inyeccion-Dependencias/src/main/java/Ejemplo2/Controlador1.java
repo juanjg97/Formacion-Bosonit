@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controlador1 {
     //Inyección de dependencias
     @Autowired
-        @Qualifier("BeanComponente1")
+        //@Qualifier("BeanComponente1")
         //@Qualifier("ClaseComponente1")
     Componente1 componente_a;
     @Autowired
@@ -22,8 +22,9 @@ public class Controlador1 {
     @Autowired
     Componente4 componente_d;
 
+
     @Autowired
-    @Qualifier("ClaseComponente1")
+   // @Qualifier("ClaseComponente1")
     Componente1 componente_aa;
 
 
