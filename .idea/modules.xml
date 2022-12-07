@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Ejercicios-Java/AbstraccionInterfaces/AbstraccionInterfaces.iml" filepath="$PROJECT_DIR$/Ejercicios-Java/AbstraccionInterfaces/AbstraccionInterfaces.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Formacion-Bosonit.iml" filepath="$PROJECT_DIR$/.idea/Formacion-Bosonit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ejercicios-Java/Statics/Statics.iml" filepath="$PROJECT_DIR$/Ejercicios-Java/Statics/Statics.iml" />
     </modules>
   </component>
 </project>
