@@ -7,6 +7,7 @@ package com.bosonit.block7crud.domain.entity;
  */
 
 import com.bosonit.block7crud.controller.dto.PersonInputDto;
+import com.bosonit.block7crud.controller.dto.PersonOutputDto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -35,8 +36,29 @@ public class Person {
      *Usamos DTOs para enviar y recibir datos,
      *necesitamos un par de métodos para transformar esos DTOs en objetos de clase student, y viceversa
      *
-     *Constructor de la clase Student, inyectamos a StudentInputDto
+     *
+     *Constructor de la clase Person, inyectamos a StudentInputDto
      *Para construir un objeto de la Clase Student usamos los atributos de la clase Student InputDto
      */
+    public Person(PersonInputDto personInputDto) {
+        this.id = personInputDto.getId();
+        this.nombre = personInputDto.getNombre();
+        this.edad = personInputDto.getEdad();
+        this.poblacion = personInputDto.getPoblacion();
+    }
+
+    /*
+     *Método que crea y regresa un objeto de la clase PersonOutputDto
+     *Lo usamos en PersonServiceImp, así cuando tenemos un Objeto de tipo Person, lo transforma a PersonOutputDto
+     */
+    public PersonOutputDto personToPersonOutputDto() {
+        return new PersonOutputDto(
+                this.id,
+                this.nombre,
+                this.edad,
+                this.poblacion
+        );
+    }
+
 
 }
