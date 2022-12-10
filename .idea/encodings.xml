@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$USER_HOME$/Downloads/SpringInit/springdata/src/main/java" charset="UTF-8" />
-    <file url="file://$USER_HOME$/Downloads/block5-logging/src/main/java" charset="UTF-8" />
-    <file url="file://$USER_HOME$/Downloads/block5-logging/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Bloque1/bloque-1-jdk/block1-process-file-and-streams/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Bloque1/bloque-1-jdk/block1-process-file-and-streams/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Bloque1/bloque-1-jdk/src/main/java" charset="UTF-8" />
@@ -50,5 +47,12 @@
     <file url="file://$PROJECT_DIR$/EjerciciosJava/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/a-AbstraccionInterfaces/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/a-AbstraccionInterfaces/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examen_JPA_cascada/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examen_JPA_cascada/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examen_jpa_cascade/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examen_jpa_cascade/src/main/resources" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/SpringInit/springdata/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/block5-logging/src/main/java" charset="UTF-8" />
+    <file url="file://$USER_HOME$/Downloads/block5-logging/src/main/resources" charset="UTF-8" />
   </component>
 </project>

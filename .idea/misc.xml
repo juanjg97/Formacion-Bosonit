@@ -42,8 +42,13 @@
         <option value="$USER_HOME$/Downloads/SpringInit/springdata/pom.xml" />
         <option value="$PROJECT_DIR$/Ejercicios-Java/springdata/pom.xml" />
         <option value="$PROJECT_DIR$/Bloque7/block7-crud/pom.xml" />
+        <option value="$USER_HOME$/Downloads/Spring Initializer/examen_JPA_cascada/pom.xml" />
+        <option value="$USER_HOME$/Downloads/Examen/examen_jpa_cascade/pom.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="openjdk-19" project-jdk-type="JavaSDK" />
+  <component name="ProjectType">
+    <option name="id" value="jpab" />
+  </component>
 </project>

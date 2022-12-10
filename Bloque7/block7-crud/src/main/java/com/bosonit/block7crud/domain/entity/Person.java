@@ -38,7 +38,7 @@ public class Person {
      *
      *
      *Constructor de la clase Person, inyectamos a StudentInputDto
-     *Para construir un objeto de la Clase Student usamos los atributos de la clase Student InputDto
+     *Para construir un objeto de la Clase Person usamos los atributos de la clase Person InputDto
      */
     public Person(PersonInputDto personInputDto) {
         this.id = personInputDto.getId();
@@ -50,14 +50,16 @@ public class Person {
     /*
      *Método que crea y regresa un objeto de la clase PersonOutputDto
      *Lo usamos en PersonServiceImp, así cuando tenemos un Objeto de tipo Person, lo transforma a PersonOutputDto
-     */
-    public PersonOutputDto personToPersonOutputDto() {
-        return new PersonOutputDto(
-                this.id,
-                this.nombre,
-                this.edad,
-                this.poblacion
-        );
+     
+    public PersonOutputDto personToPersonOutputDto(Persona persona) {
+        return new PersonOutputDto(this.id=persona.getId(),
+                                   this.nombre=persona.getNombre(),
+                                   this.edad=persona.getEdad(),
+                                   this.poblacion=persona.getPoblacion());
+    }
+*/
+        public PersonOutputDto personToPersonOutputDto() {
+        return new PersonOutputDto(this.id,this.nombre,this.edad,this.poblacion);
     }
 
 

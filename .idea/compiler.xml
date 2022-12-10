@@ -11,6 +11,7 @@
         <module name="e-ClasesAnonimas" />
         <module name="Controladores" />
         <module name="springdata" />
+        <module name="examen_jpa_cascade" />
         <module name="block7-crud" />
         <module name="demo" />
         <module name="block3-maven-package" />
@@ -32,6 +33,7 @@
       <module name="block5-profiles" target="19" />
       <module name="Bloque7" target="19" />
       <module name="EjerciciosJava" target="19" />
+      <module name="examen_JPA_cascada" target="19" />
       <module name="f-Lambdas" target="19" />
       <module name="Statics" target="19" />
     </bytecodeTargetLevel>
@@ -50,6 +52,8 @@
       <module name="demo (2)" options="-parameters" />
       <module name="demo (3)" options="-parameters" />
       <module name="demo (4)" options="-parameters" />
+      <module name="examen_JPA_cascada" options="-parameters" />
+      <module name="examen_jpa_cascade" options="-parameters" />
       <module name="springdata" options="-parameters" />
     </option>
   </component>
