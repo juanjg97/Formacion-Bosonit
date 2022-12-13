@@ -1,14 +1,14 @@
 package com.bosonit.examen_jpa_cascade.domain.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
 @ToString
@@ -20,4 +20,11 @@ public class Cliente {
 
     @Column(nullable = false)
     String nombre;
+
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL)
+    List<Factura> Facturas = new ArrayList<>();
+
+    public Cliente(String nombre) {
+        this.nombre = nombre;
+    }
 }

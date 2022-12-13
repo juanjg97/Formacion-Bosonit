@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 public class FacturaOutput {
     int id_factura;
-    double importe_factura;
+    double importe_total_factura;
 
     ClienteOutput clienteOutput;
     List<LineaOutput> lineaOutputList;
@@ -22,7 +22,7 @@ public class FacturaOutput {
     public String toString() {
         return "FacturaOutput{" +
                 "id_factura=" + id_factura +
-                ", importe_factura=" + importe_factura +
+                ", importe_factura=" + importe_total_factura +
                 ", clienteOutput=" + clienteOutput +
                 ", lineaOutputList=" + lineaOutputList +
                 '}';

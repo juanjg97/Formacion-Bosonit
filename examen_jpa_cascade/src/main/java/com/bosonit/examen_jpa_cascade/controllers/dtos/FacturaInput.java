@@ -12,6 +12,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class FacturaInput {
     int id_cliente;
-    Double importe_factura;
+    Double importe_total_factura;
 
 }
