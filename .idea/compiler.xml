@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="springdata-validation" />
         <module name="d-ErroresExcepciones" />
         <module name="e-ClasesAnonimas" />
         <module name="Controladores" />
@@ -55,6 +56,7 @@
       <module name="examen_JPA_cascada" options="-parameters" />
       <module name="examen_jpa_cascade" options="-parameters" />
       <module name="springdata" options="-parameters" />
+      <module name="springdata-validation" options="-parameters" />
     </option>
   </component>
 </project>

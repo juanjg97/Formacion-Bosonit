@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "b086eb49-fc4e-4074-a0b5-c788437c4ba4",
+		"name": "Bloque7-CrudValidation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24612743"
+	},
+	"item": [
+		{
+			"name": "Agregar Persona",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"usuario\": \"Mario\" ,\r\n     \"password\": \"12345\",\r\n     \"name\": \"Juan Jose\",\r\n     \"surname\": \"Jasso\",\r\n     \"company_email\": \"juan@bosonit.com\",\r\n     \"personal_email\": \"juan@gmail.com\",\r\n     \"city\": \"Toluca\",\r\n     \"active\": true,\r\n     \"created_date\": \"2022-11-15\",\r\n     \"image_url\": \"www.image.com\",\r\n     \"termination_date\":\"2022-11-16\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/persona/addPersona",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"addPersona"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerPersonaPorId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/persona/id/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"id",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerPersonaPorUsuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/persona/usuario/Mario",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"usuario",
+						"Mario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerTodasLasPersonas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/persona/personas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"personas"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
