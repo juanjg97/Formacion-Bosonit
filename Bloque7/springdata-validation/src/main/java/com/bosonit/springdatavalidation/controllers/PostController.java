@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/persona")
+@RequestMapping("/prueba/controller")
 public class PostController {
     //Inyectamos el servicio para la lógica de negocio y crud
     @Autowired

@@ -1,16 +1,22 @@
 package com.bosonit.springdatavalidation.controllers;
 
 import com.bosonit.springdatavalidation.application.services.PersonaServiceImp;
+import com.bosonit.springdatavalidation.controllers.dtos.PersonaInput;
 import com.bosonit.springdatavalidation.controllers.dtos.PersonaOutput;
 import com.bosonit.springdatavalidation.domain.entities.Persona;
+import com.bosonit.springdatavalidation.exceptions.EntityNotFoundException; //Importamos la excepción personalizada
 import com.bosonit.springdatavalidation.mappers.PersonaMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.NoSuchElementException;
 import java.util.stream.StreamSupport;
 
 @RestController
-@RequestMapping("/prueba/controller")
-public class GetController {
+@RequestMapping("/persona")
+public class Controller {
     //Inyectamos el servicio para la lógica de negocio y crud
     @Autowired
     PersonaServiceImp personaServiceImp;
@@ -63,6 +69,55 @@ public class GetController {
         //Regresa a las personas de tipo output
         return personasOutput;
 
+    }
+
+    //-------------------------------------------------
+
+    @PostMapping("/addPersona")
+    public ResponseEntity<PersonaOutput> addPersona(@RequestBody PersonaInput personaInput) throws Exception{
+
+        Persona persona = new Persona();
+        PersonaOutput personaOutput = new PersonaOutput();
+
+        //Revisa que la información de personaInput que llega de Postman esté completa, si no manda error
+        personaServiceImp.checkInformation(personaInput);
+
+        //Transforma de input a entidad para usar los métodos de lógica de negocio y crud
+        persona = PersonaMapper.pMapper.personaInputToPersona(personaInput);
+
+        //Agrega a la persona a la bdd, después conviertela a output
+        personaOutput= PersonaMapper.pMapper.personaToPersonaOutput(personaServiceImp.addPersona(persona));
+
+        System.out.println("Persona agregada");
+
+        //Regresa a la personaOutput
+        return ResponseEntity.status(HttpStatus.CREATED).body(personaOutput);
+    }
+
+    @PutMapping("/updatePersona")
+    public ResponseEntity<PersonaOutput> updatePersona(@RequestBody PersonaInput personaInput) {
+        try {
+            Persona persona = new Persona();
+            PersonaOutput personaOutput = new PersonaOutput();
+
+            persona = PersonaMapper.pMapper.personaInputToPersona(personaInput);
+
+            personaOutput= PersonaMapper.pMapper.personaToPersonaOutput(personaServiceImp.updatePersona(persona));
+
+            return ResponseEntity.ok().body(personaOutput);
+
+        } catch (NoSuchElementException e) {
+            //Usamos la excepción que creamos
+            throw new EntityNotFoundException("Persona no encontrada");
+        }
+    }
+
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<PersonaOutput> deletePersona(@PathVariable int id) {
+        Persona persona = personaServiceImp.getPersonaById(id);
+        PersonaOutput personaOutput = PersonaMapper.pMapper.personaToPersonaOutput(persona);
+        personaServiceImp.deletePersona(id);
+        return ResponseEntity.ok().body(personaOutput);
     }
 
 }

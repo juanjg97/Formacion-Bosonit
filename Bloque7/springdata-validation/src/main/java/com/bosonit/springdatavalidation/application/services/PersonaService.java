@@ -6,6 +6,7 @@ import com.bosonit.springdatavalidation.domain.entities.Persona;
 public interface PersonaService {
     //Métodos para implementar la lógica de negocio más el CRUD
     Persona addPersona(Persona persona); //Después usará .save()
+    Persona updatePersona(Persona persona);
     Persona getPersonaById(int id); //Después usará .findById()
 
     //Implementará método declarado en el repositorio
@@ -15,5 +16,7 @@ public interface PersonaService {
 
     //Método para validar el ingreso de los datos de InputPersona
     void checkInformation(PersonaInput personaInput) throws Exception;
+    //Método para elimiar personas por medio de su id
+    void deletePersona(int id_usuario);
 
 }
