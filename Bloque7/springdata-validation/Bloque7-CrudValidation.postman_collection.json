@@ -92,6 +92,43 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "EliminarPerson",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/persona/delete/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActualizarPersona",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    \"id_usuario\": 1,\r\n    \"usuario\": \"Pepe\",\r\n    \"password\": \"12345\",\r\n    \"name\": \"Juan Jose\",\r\n    \"surname\": \"Jasso\",\r\n    \"company_email\": \"juan@bosonit.com\",\r\n    \"personal_email\": \"juan@gmail.com\",\r\n    \"city\": \"Toluca\",\r\n    \"active\": true,\r\n    \"created_date\": \"2022-11-15T00:00:00.000+00:00\",\r\n    \"image_url\": \"www.image.com\",\r\n    \"termination_date\": \"2022-11-16T00:00:00.000+00:00\"",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				}
+			},
+			"response": []
 		}
 	]
 }
