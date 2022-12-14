@@ -103,7 +103,7 @@ public class Controller {
             persona = PersonaMapper.pMapper.personaInputToPersona(personaInput);
 
             personaOutput= PersonaMapper.pMapper.personaToPersonaOutput(personaServiceImp.updatePersona(persona));
-
+            System.out.println("Persona actualizadada");
             return ResponseEntity.ok().body(personaOutput);
 
         } catch (NoSuchElementException e) {

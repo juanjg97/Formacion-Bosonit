@@ -39,8 +39,8 @@ public class PersonaServiceImp implements PersonaService {
     @Override
     public Persona updatePersona(Persona persona) {
         try {
-            Persona p = getPersonaById(persona.getId_usuario());
-            return p;
+            getPersonaById(persona.getId_usuario());
+            return addPersona(persona);
         } catch (NoSuchElementException e) {
             throw new EntityNotFoundException("Persona no encontrada");
         }
