@@ -1,9 +1,11 @@
 package com.bosonit.springdatavalidation.application.services;
 
 import com.bosonit.springdatavalidation.controllers.dtos.PersonaInput;
+import com.bosonit.springdatavalidation.controllers.dtos.PersonaOutput;
 import com.bosonit.springdatavalidation.domain.entities.Persona;
 import com.bosonit.springdatavalidation.exceptions.EntityNotFoundException;
 import com.bosonit.springdatavalidation.exceptions.UnprocessableEntityException;
+import com.bosonit.springdatavalidation.mappers.PersonaMapper;
 import com.bosonit.springdatavalidation.repositories.PersonaRepositorio;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
+import java.util.stream.StreamSupport;
 
 
 @Service
@@ -23,39 +26,57 @@ public class PersonaServiceImp implements PersonaService {
 
     //Lógica de negocio incluyendo lógica CRUD
     @Override
-    public Persona addPersona(Persona persona) {
-        return personaRepositorio.save(persona);
+    public PersonaOutput addPersona(PersonaInput personaInput) throws Exception {
+        //Revisa que la información de personaInput que llega de Postman esté completa, si no manda error
+        checkInformation(personaInput);
+        //Transforma de input a entidad para usar los métodos de lógica de negocio y crud
+        Persona persona = PersonaMapper.pMapper.personaInputToPersona(personaInput);
+        //Agrega a la persona a la bdd, después conviertela a output
+        PersonaOutput personaOutput= PersonaMapper.pMapper.personaToPersonaOutput(personaRepositorio.save(persona));
+        System.out.println("Persona agregada");
+
+        return personaOutput;
     }
 
     @Override
-    public Persona getPersonaById(int id) {
+    public PersonaOutput getPersonaById(int id) {
         try {
-            return personaRepositorio.findById(id).orElseThrow();
+            Persona p = personaRepositorio.findById(id).orElseThrow();
+            PersonaOutput pO = PersonaMapper.pMapper.personaToPersonaOutput(p);
+            return pO;
         }catch (NoSuchElementException e) {
             throw new EntityNotFoundException("No se encontró el id: " + id);
         }
     }
 
     @Override
-    public Persona updatePersona(Persona persona) {
+    public PersonaOutput updatePersona(PersonaInput personaInput) {
         try {
-            getPersonaById(persona.getId_usuario());
-            return addPersona(persona);
+            getPersonaById(personaInput.getId_usuario());
+            Persona persona = PersonaMapper.pMapper.personaInputToPersona(personaInput);
+            PersonaOutput personaOutput= PersonaMapper.pMapper.personaToPersonaOutput(personaRepositorio.save(persona));
+            return personaOutput;
         } catch (NoSuchElementException e) {
             throw new EntityNotFoundException("Persona no encontrada");
         }
     }
 
     @Override
-    public Persona getPersonaByUsuario(String usuario) {
-        return personaRepositorio.findByUsuario(usuario);
+    public PersonaOutput getPersonaByUsuario(String usuario) {
+        Persona p = personaRepositorio.findByUsuario(usuario);
+        return PersonaMapper.pMapper.personaToPersonaOutput(p);
     }
 
     @Override
-    public Iterable<Persona> getAllPersonas(int pageNumber, int pageSize) {
+    public Iterable<PersonaOutput> getAllPersonas(int pageNumber, int pageSize) {
         PageRequest pageRequest = PageRequest.of(pageNumber, pageSize);
 
-        return personaRepositorio.findAll(pageRequest).getContent();
+        Iterable <Persona> personas = personaRepositorio.findAll(pageRequest).getContent();
+        Iterable<PersonaOutput> personasO = StreamSupport
+                                .stream(personas.spliterator(),false)
+                                .map(persona -> PersonaMapper.pMapper.personaToPersonaOutput(persona)).toList();
+
+        return personasO;
     }
 
     @Override
