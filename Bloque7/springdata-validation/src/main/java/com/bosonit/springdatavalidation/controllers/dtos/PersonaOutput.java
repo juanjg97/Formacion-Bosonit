@@ -25,4 +25,6 @@ public class PersonaOutput {
     Date created_date;
     String image_url;
     Date termination_date;
+
+
 }

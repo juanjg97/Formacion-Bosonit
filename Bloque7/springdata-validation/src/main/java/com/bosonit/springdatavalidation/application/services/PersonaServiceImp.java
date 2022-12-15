@@ -28,11 +28,15 @@ public class PersonaServiceImp implements PersonaService {
     @Override
     public PersonaOutput addPersona(PersonaInput personaInput) throws Exception {
         //Revisa que la información de personaInput que llega de Postman esté completa, si no manda error
-        checkInformation(personaInput);
+        checkInformationPerson(personaInput);
         //Transforma de input a entidad para usar los métodos de lógica de negocio y crud
         Persona persona = PersonaMapper.pMapper.personaInputToPersona(personaInput);
+
         //Agrega a la persona a la bdd, después conviertela a output
         PersonaOutput personaOutput= PersonaMapper.pMapper.personaToPersonaOutput(personaRepositorio.save(persona));
+
+
+
         System.out.println("Persona agregada");
 
         return personaOutput;
@@ -92,7 +96,7 @@ public class PersonaServiceImp implements PersonaService {
 
     //Método para validar la información enviada por Postman, en este caso recibe directamente el input
     @Override
-    public void checkInformation(PersonaInput personaInput) throws Exception {
+    public void checkInformationPerson(PersonaInput personaInput) throws Exception {
         if (personaInput.getUsuario() == null) {
             throw new UnprocessableEntityException("Usuario no puede ser nulo");
         } else if (personaInput.getUsuario().length() > 10) {

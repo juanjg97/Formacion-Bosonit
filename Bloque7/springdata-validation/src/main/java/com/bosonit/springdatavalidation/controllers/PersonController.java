@@ -14,7 +14,6 @@ import java.util.NoSuchElementException;
 @RestController
 @RequestMapping("/persona")
 public class PersonController {
-    //Inyectamos el servicio para la lógica de negocio y crud
     @Autowired
     PersonaServiceImp personaServiceImp;
 
