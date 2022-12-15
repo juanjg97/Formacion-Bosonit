@@ -7,7 +7,7 @@ import com.bosonit.springdatavalidation.domain.entities.Profesor;
 import java.util.List;
 
 public interface ProfesorService {
-    ProfesorOutput addProfesor(ProfesorInput profesorInput, int id_usuario);
+    ProfesorOutput addProfesor(ProfesorInput profesorInput, int id_usuario) throws Exception;
     ProfesorOutput getProfesorById(int id_profesor);
     List<ProfesorOutput> getAllProfesores(int pageNumber, int pageSize);
     ProfesorOutput updateProfesorById(int id_profesor, ProfesorInput profesorInput);

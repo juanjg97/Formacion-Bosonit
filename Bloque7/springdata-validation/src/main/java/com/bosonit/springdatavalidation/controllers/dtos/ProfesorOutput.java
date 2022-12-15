@@ -1,7 +1,14 @@
 package com.bosonit.springdatavalidation.controllers.dtos;
 
+import lombok.*;
+
 import java.util.List;
 
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class ProfesorOutput {
     int id_profesor;
     String comentarios;
