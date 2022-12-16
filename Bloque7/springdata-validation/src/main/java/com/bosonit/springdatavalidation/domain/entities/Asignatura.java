@@ -12,11 +12,17 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Asignatura {
     @Id
     @GeneratedValue
     @Column(name = "id_asignatura")
     private int id_asignatura;
+
+    //Muchas asignaturas pueden tener un estudiante
+    @ManyToOne
+    @JoinColumn(name = "id_student")
+    private Student student;
 
     @Column(name = "asignatura")
     private String asignatura;
@@ -29,8 +35,5 @@ public class Asignatura {
 
     @Column(name = "fecha_termino")
     private Date fecha_termino;
-    //Muchas asignaturas pueden tener un estudiante
-    @ManyToOne
-    @JoinColumn(name = "id_student")
-    private Student student;
+
 }

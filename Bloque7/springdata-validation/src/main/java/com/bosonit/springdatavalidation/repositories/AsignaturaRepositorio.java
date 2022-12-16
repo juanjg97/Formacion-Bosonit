@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface AsignaturaRepositorio extends JpaRepository<Asignatura,Integer> {
     //Método personalizado findBy<Columna>
-
+    //List<Asignatura> findByStudent_Id_Student(int id_student);
 }

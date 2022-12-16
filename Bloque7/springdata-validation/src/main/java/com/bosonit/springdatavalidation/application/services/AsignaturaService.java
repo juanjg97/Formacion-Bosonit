@@ -7,7 +7,7 @@ import com.bosonit.springdatavalidation.domain.entities.Asignatura;
 import java.util.List;
 
 public interface AsignaturaService {
-    AsignaturaOutput addAsignatura(AsignaturaInput asignaturaInput);
+    AsignaturaOutput addAsignatura(AsignaturaInput asignaturaInput) throws Exception;
     AsignaturaOutput getAsignaturaById(int id_asignatura);
     List<AsignaturaOutput> getAllAsignaturas(int pageNumber, int pageSize);
     AsignaturaOutput updateAsignatura(int id_asignatura, AsignaturaInput asignaturaInput);

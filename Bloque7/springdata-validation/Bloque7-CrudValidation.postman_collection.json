@@ -35,7 +35,90 @@
 			"response": []
 		},
 		{
-			"name": "PersonaPorIdObtener",
+			"name": "ProfesorAgregar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"comentarios\":\"blablabla\",\r\n    \"rama\":\"Backend\",\r\n    \"id_persona\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/profesor/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"profesor",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EstudianteAgregar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"num_hours_week\": 10 ,\r\n     \"comentarios\": \"Hola\",\r\n     \"rama\": \"Backend\",\r\n     \"id_usuario\": 1,\r\n     \"id_profesor\":1\r\n     \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/student",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AsignaturaAgregar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_asignatura\":1,\r\n    \"asignatura\":\"Español\",\r\n    \"comentarios\":\"blablabla\",\r\n    \"fecha_inicio\":\"2022-11-15\",\r\n    \"fecha_termino\":\"2022-11-16\",\r\n    \"id_student\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/asignatura/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"asignatura",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PersonaPorId",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -49,6 +132,180 @@
 						"persona",
 						"id",
 						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProfesorPorId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/profesor/read/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"profesor",
+						"read",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EstudiantePorId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/student/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AsignaturaPorId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/asignatura/read/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"asignatura",
+						"read",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PersonaActualizar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"id_usuario\":1,\r\n     \"usuario\":\"Julia Maria\",\r\n     \"password\": \"12345\",\r\n     \"name\": \"Juan Jose\",\r\n     \"surname\": \"Jasso\",\r\n     \"company_email\": \"juan@bosonit.com\",\r\n     \"personal_email\": \"juan@gmail.com\",\r\n     \"city\": \"Toluca\",\r\n     \"active\": true,\r\n     \"created_date\": \"2022-11-15\",\r\n     \"image_url\": \"www.image.com\",\r\n     \"termination_date\":\"2022-11-16\"\r\n}\r\n\r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/persona/updatePersona",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"updatePersona"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProfesorActualizar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"comentarios\":\"blablabla\",\r\n    \"rama\":\"UIX\",\r\n    \"id_persona\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/profesor/update/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"profesor",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EstudianteActualizar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"num_hours_week\": 10 ,\r\n     \"comentarios\": \"Hola\",\r\n     \"rama\": \"Frontend\",\r\n     \"id_usuario\": 1,\r\n     \"id_profesor\":1\r\n     \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/student/updateEstudiante/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student",
+						"updateEstudiante",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AsignaturaActualizar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_asignatura\":1,\r\n    \"asignatura\":\"Español-1\",\r\n    \"comentarios\":\"hola\",\r\n    \"fecha_inicio\":\"2022-11-15\",\r\n    \"fecha_termino\":\"2022-11-16\",\r\n    \"id_student\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/asignatura/update/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"asignatura",
+						"update",
+						"1"
 					]
 				}
 			},
@@ -104,94 +361,19 @@
 			"response": []
 		},
 		{
-			"name": "PersonaActualizar",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n     \"id_usuario\":1,\r\n     \"usuario\":\"Julia Maria\",\r\n     \"password\": \"12345\",\r\n     \"name\": \"Juan Jose\",\r\n     \"surname\": \"Jasso\",\r\n     \"company_email\": \"juan@bosonit.com\",\r\n     \"personal_email\": \"juan@gmail.com\",\r\n     \"city\": \"Toluca\",\r\n     \"active\": true,\r\n     \"created_date\": \"2022-11-15\",\r\n     \"image_url\": \"www.image.com\",\r\n     \"termination_date\":\"2022-11-16\"\r\n}\r\n\r\n    ",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8080/persona/updatePersona",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"persona",
-						"updatePersona"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "PersonEliminar",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/persona/delete/1",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"persona",
-						"delete",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "EstudianteAgregar",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n     \"num_hours_week\": 10 ,\r\n     \"comentarios\": \"Hola\",\r\n     \"rama\": \"Backend\",\r\n     \"id_usuario\": 2,\r\n     \"id_profesor\":1\r\n     \r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8080/student",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"student"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "EstudiantePorIdObtener",
+			"name": "TodosLosProfesoresObtener",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/student/1",
+					"raw": "localhost:8080/profesor/readAll",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"student",
-						"1"
+						"profesor",
+						"readAll"
 					]
 				}
 			},
@@ -217,28 +399,58 @@
 			"response": []
 		},
 		{
-			"name": "EstudianteActualizar",
+			"name": "TodasLasAsignaturasObtener",
 			"request": {
-				"method": "PUT",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n     \"num_hours_week\": 10 ,\r\n     \"comentarios\": \"Hola\",\r\n     \"rama\": \"Frontend\",\r\n     \"id_usuario\": 1,\r\n     \"id_profesor\":1\r\n     \r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "localhost:8080/student/updateEstudiante/1",
+					"raw": "localhost:8080/asignatura/readAll",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"student",
-						"updateEstudiante",
+						"asignatura",
+						"readAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PersonaEliminar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/persona/delete/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProfesorEliminar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/profesor/delete/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"profesor",
+						"delete",
 						"1"
 					]
 				}
@@ -266,114 +478,18 @@
 			"response": []
 		},
 		{
-			"name": "ProfesorAgregar",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"comentarios\":\"blablabla\",\r\n    \"rama\":\"Backend\",\r\n    \"id_persona\":1\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8080/profesor/add",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"profesor",
-						"add"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ProfesorObtener",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/profesor/read/1",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"profesor",
-						"read",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "TodosLosProfesoresObtener",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/profesor/readAll",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"profesor",
-						"readAll"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ProfesorActualizar",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"comentarios\":\"blablabla\",\r\n    \"rama\":\"UIX\",\r\n    \"id_persona\":1\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8080/profesor/update/1",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"profesor",
-						"update",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ProfesorEliminar",
+			"name": "AsignaturaEliminar",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/profesor/delete/1",
+					"raw": "localhost:8080/asignatura/delete/1",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"profesor",
+						"asignatura",
 						"delete",
 						"1"
 					]
