@@ -50,6 +50,13 @@ public class ProfesorServiceImp implements ProfesorService{
 
             ProfesorOutput profesorOutput = ProfesorMapper.pMapper.profesorToProfesorOutput(profesorRepositorio.save(profesor));
 
+            List<Student> students = (profesor.getStudentList());
+            List<StudentOutput> studentsO = StreamSupport
+                    .stream(students.spliterator(),false)
+                    .map(student ->StudentMapper.sMapper.studentToStudentOutput(student)).toList();
+            profesorOutput.setStudents(studentsO);
+
+
             return profesorOutput;
         }catch(NoSuchElementException e){
             throw new EntityNotFoundException("No se encontró la persona con el id: " + id_usuario);
@@ -61,6 +68,13 @@ public class ProfesorServiceImp implements ProfesorService{
         try {
             Profesor profesor = profesorRepositorio.findById(id_profesor).orElseThrow();
             ProfesorOutput profesorOutput = ProfesorMapper.pMapper.profesorToProfesorOutput(profesor);
+
+            List<Student> students = profesor.getStudentList();
+            List<StudentOutput> studentsOutput = StreamSupport.stream(students.spliterator(),false)
+                    .map(student->StudentMapper.sMapper.studentToStudentOutput(student))
+                    .toList();
+            profesorOutput.setStudents(studentsOutput);
+
             return profesorOutput;
         } catch (NoSuchElementException e){
             throw new EntityNotFoundException("No se encontró el profesor con id: " + id_profesor);
@@ -84,9 +98,19 @@ public class ProfesorServiceImp implements ProfesorService{
     public ProfesorOutput updateProfesorById(int id_profesor, ProfesorInput profesorInput) {
         try {
             Profesor oldProfesor = profesorRepositorio.findById(id_profesor).orElseThrow();
+
             Profesor newProfesor = ProfesorMapper.pMapper.profesorInputToProfesor(profesorInput);
             newProfesor.setId_profesor(oldProfesor.getId_profesor());
+            newProfesor.setStudentList(oldProfesor.getStudentList());
+
             ProfesorOutput profesorOutput = ProfesorMapper.pMapper.profesorToProfesorOutput(profesorRepositorio.save(newProfesor));
+
+            List<Student> students = newProfesor.getStudentList();
+            List<StudentOutput> studentsOutput = StreamSupport.stream(students.spliterator(),false)
+                                                              .map(student->StudentMapper.sMapper.studentToStudentOutput(student))
+                                                              .toList();
+
+            profesorOutput.setStudents(studentsOutput);
             return profesorOutput;
         } catch (NoSuchElementException e) {
             throw new EntityNotFoundException("Persona no encontrada");

@@ -46,7 +46,10 @@ public class AsignaturaServiceImp implements AsignaturaService{
             student.setId_student(asignaturaInput.getId_student());
             student.setAsignaturaList(listaAsignaturas);
 
+
             AsignaturaOutput asignaturaOutput = AsignaturaMapper.aMapper.asignaturaToAsignaturaOutput(asignaturaRepositorio.save(asignatura));
+
+            studentRepositorio.save(student);
 
             return asignaturaOutput;
 
@@ -82,11 +85,20 @@ public class AsignaturaServiceImp implements AsignaturaService{
     @Override
     public AsignaturaOutput updateAsignatura(int id_asignatura, AsignaturaInput asignaturaInput) {
         try {
+            Student student = studentRepositorio.findById(asignaturaInput.getId_student()).orElseThrow();
 
             Asignatura oldAsignatura = asignaturaRepositorio.findById(id_asignatura).orElseThrow();
             Asignatura newAsignatura = AsignaturaMapper.aMapper.asignaturaInputToAsignatura(asignaturaInput);
 
             newAsignatura.setId_asignatura(id_asignatura);
+            newAsignatura.setStudent(student);
+
+            List<Asignatura> asignaturaList = student.getAsignaturaList();
+            asignaturaList.add(newAsignatura);
+            student.setAsignaturaList(asignaturaList);
+            studentRepositorio.save(student);
+
+
             AsignaturaOutput asignaturaOutput = AsignaturaMapper.aMapper.asignaturaToAsignaturaOutput(asignaturaRepositorio.save(newAsignatura));
             return asignaturaOutput;
 

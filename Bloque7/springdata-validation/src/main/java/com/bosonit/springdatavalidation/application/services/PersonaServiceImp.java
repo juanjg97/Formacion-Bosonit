@@ -18,13 +18,9 @@ import java.util.stream.StreamSupport;
 
 @Service
 public class PersonaServiceImp implements PersonaService {
-    //Inyectamos el repositorio para utilizar los métodos CRUD
     @Autowired
     PersonaRepositorio personaRepositorio; //.save(), .findById(), .findByUsuario(), findAll()
 
-    //Los siguientes métodos reciben entidades, realiza las operaciones CRUD, regresa entidades (En el controlador hacemos las conversiones)
-
-    //Lógica de negocio incluyendo lógica CRUD
     @Override
     public PersonaOutput addPersona(PersonaInput personaInput) throws Exception {
         //Revisa que la información de personaInput que llega de Postman esté completa, si no manda error

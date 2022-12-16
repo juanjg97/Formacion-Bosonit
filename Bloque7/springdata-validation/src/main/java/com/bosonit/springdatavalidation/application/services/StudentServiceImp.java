@@ -1,16 +1,17 @@
 package com.bosonit.springdatavalidation.application.services;
 
-import com.bosonit.springdatavalidation.controllers.dtos.PersonaOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.AsignaturaOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.ProfesorInput;
 import com.bosonit.springdatavalidation.controllers.dtos.StudentInput;
 import com.bosonit.springdatavalidation.controllers.dtos.StudentOutput;
+import com.bosonit.springdatavalidation.domain.entities.Asignatura;
 import com.bosonit.springdatavalidation.domain.entities.Persona;
 import com.bosonit.springdatavalidation.domain.entities.Profesor;
 import com.bosonit.springdatavalidation.domain.entities.Student;
 import com.bosonit.springdatavalidation.exceptions.EntityNotFoundException;
 import com.bosonit.springdatavalidation.exceptions.UnprocessableEntityException;
-import com.bosonit.springdatavalidation.mappers.PersonaMapper;
+import com.bosonit.springdatavalidation.mappers.AsignaturaMapper;
 import com.bosonit.springdatavalidation.mappers.StudentMapper;
-import com.bosonit.springdatavalidation.mappers.StudentMapperImpl;
 import com.bosonit.springdatavalidation.repositories.AsignaturaRepositorio;
 import com.bosonit.springdatavalidation.repositories.PersonaRepositorio;
 import com.bosonit.springdatavalidation.repositories.ProfesorRepositorio;
@@ -21,6 +22,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 @Service
@@ -32,11 +34,12 @@ public class StudentServiceImp implements StudentService{
     @Autowired
     ProfesorRepositorio profesorRepositorio;
 
-
     @Autowired
     PersonaServiceImp personaServiceImp;
+
     @Autowired
     ProfesorServiceImp profesorServiceImp;
+
     @Autowired
     AsignaturaRepositorio asignaturaRepositorio;
 
@@ -46,7 +49,7 @@ public class StudentServiceImp implements StudentService{
             checkInformationStudent(studentInput);
 
             Persona persona = personaRepositorio.findById(id_usuario).orElseThrow();
-            //Profesor profesor = profesorRepositorio.findById(id_profesor).orElseThrow();
+            Profesor profesor = profesorRepositorio.findById(id_profesor).orElseThrow();
 
             if(persona.getStudent()!=null || persona.getProfesor() != null){
                 throw new UnprocessableEntityException("La persona con id: "+id_usuario + "ya tiene los datos asignados");
@@ -57,14 +60,14 @@ public class StudentServiceImp implements StudentService{
             persona.setStudent(student);
             student.setPersona(persona);
 
-//        student.setProfesor(profesor);
+            List<Student> studentsList = profesor.getStudentList();
+            studentsList.add(student);
+            profesor.setStudentList(studentsList);
 
-/*        List<Student> studentsList = profesor.getStudentList();
-        studentsList.add(student);
-        profesor.setStudentList(studentsList);
+            student.setProfesor(profesor);
 
-        ProfesorService.updateProfesorById(id_profesor,profesor)
-*/
+            profesorRepositorio.save(profesor);
+
             StudentOutput studentOutput = StudentMapper.sMapper.studentToStudentOutput(studentRepositorio.save(student));
 
             return studentOutput;
@@ -77,7 +80,15 @@ public class StudentServiceImp implements StudentService{
     public StudentOutput getStudentById(int id_student) {
         try {
             Student student = studentRepositorio.findById(id_student).orElseThrow();
+
             StudentOutput studentOutput = StudentMapper.sMapper.studentToStudentOutput(student);
+
+            List<Asignatura> asignaturas = student.getAsignaturaList();
+            List<AsignaturaOutput> asignaturasOutput = StreamSupport.stream(asignaturas.spliterator(),false)
+                    .map(asignatura -> AsignaturaMapper.aMapper.asignaturaToAsignaturaOutput(asignatura)).toList();
+
+            studentOutput.setAsignaturas(asignaturasOutput);
+
             return studentOutput;
         } catch (NoSuchElementException e){
             throw new EntityNotFoundException("No se encontró el id: " + id_student);
@@ -99,10 +110,22 @@ public class StudentServiceImp implements StudentService{
     @Override
     public StudentOutput updateStudentById(int id_student, StudentInput studentInput) {
         try {
-           // Student s = StudentMapper.sMapper.studentInputToStudent(studentInput);
+            Profesor profesor = profesorRepositorio.findById(studentInput.getId_profesor()).orElseThrow();
+            Persona  persona = personaRepositorio.findById(studentInput.getId_usuario()).orElseThrow();
+
             Student oldStudent = studentRepositorio.findById(id_student).orElseThrow();
             Student newStudent = StudentMapper.sMapper.studentInputToStudent(studentInput);
+
+            newStudent.setProfesor(profesor);
+            newStudent.setPersona(persona);
             newStudent.setId_student(oldStudent.getId_student());
+
+
+            List<Student> studentsList = profesor.getStudentList();
+            studentsList.add(newStudent);
+            profesor.setStudentList(studentsList);
+            profesorRepositorio.save(profesor);
+
             StudentOutput estudianteOutput=StudentMapper.sMapper.studentToStudentOutput(studentRepositorio.save(newStudent));
            return estudianteOutput;
         } catch (NoSuchElementException e) {
