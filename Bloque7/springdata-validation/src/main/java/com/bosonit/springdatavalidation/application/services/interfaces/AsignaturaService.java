@@ -1,8 +1,7 @@
-package com.bosonit.springdatavalidation.application.services;
+package com.bosonit.springdatavalidation.application.services.interfaces;
 
-import com.bosonit.springdatavalidation.controllers.dtos.AsignaturaInput;
-import com.bosonit.springdatavalidation.controllers.dtos.AsignaturaOutput;
-import com.bosonit.springdatavalidation.domain.entities.Asignatura;
+import com.bosonit.springdatavalidation.controllers.dtos.inputs.AsignaturaInput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.AsignaturaOutput;
 
 import java.util.List;
 

@@ -1,29 +1,25 @@
-package com.bosonit.springdatavalidation.application.services;
+package com.bosonit.springdatavalidation.application.services.implementations;
 
-import com.bosonit.springdatavalidation.controllers.dtos.AsignaturaInput;
-import com.bosonit.springdatavalidation.controllers.dtos.AsignaturaOutput;
-import com.bosonit.springdatavalidation.controllers.dtos.StudentInput;
-import com.bosonit.springdatavalidation.controllers.dtos.StudentOutput;
+import com.bosonit.springdatavalidation.application.services.interfaces.AsignaturaService;
+import com.bosonit.springdatavalidation.controllers.dtos.inputs.AsignaturaInput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.AsignaturaOutput;
 import com.bosonit.springdatavalidation.domain.entities.Asignatura;
 import com.bosonit.springdatavalidation.domain.entities.Student;
 import com.bosonit.springdatavalidation.exceptions.EntityNotFoundException;
 import com.bosonit.springdatavalidation.exceptions.UnprocessableEntityException;
 import com.bosonit.springdatavalidation.mappers.AsignaturaMapper;
-import com.bosonit.springdatavalidation.mappers.StudentMapper;
 import com.bosonit.springdatavalidation.repositories.AsignaturaRepositorio;
 import com.bosonit.springdatavalidation.repositories.StudentRepositorio;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Objects;
 import java.util.stream.StreamSupport;
 
 @Service
-public class AsignaturaServiceImp implements AsignaturaService{
+public class AsignaturaServiceImp implements AsignaturaService {
     @Autowired
     AsignaturaRepositorio asignaturaRepositorio;
     @Autowired

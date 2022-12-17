@@ -1,13 +1,10 @@
 package com.bosonit.springdatavalidation.controllers;
 
 
-import com.bosonit.springdatavalidation.application.services.StudentServiceImp;
-import com.bosonit.springdatavalidation.controllers.dtos.PersonaInput;
-import com.bosonit.springdatavalidation.controllers.dtos.PersonaOutput;
-import com.bosonit.springdatavalidation.controllers.dtos.StudentInput;
-import com.bosonit.springdatavalidation.controllers.dtos.StudentOutput;
-import com.bosonit.springdatavalidation.domain.entities.Persona;
-import com.bosonit.springdatavalidation.domain.entities.Student;
+import com.bosonit.springdatavalidation.application.services.implementations.StudentServiceImp;
+import com.bosonit.springdatavalidation.controllers.dtos.inputs.StudentInput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.PersonaOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.StudentOutput;
 import com.bosonit.springdatavalidation.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,11 +27,18 @@ public class StudentController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(sO);
     }
-
+    //Modificar para que acepte un requestParam**************************************************************************
     @GetMapping("{id_student}")
-    public StudentOutput getStudentById(@PathVariable int id_student) {
-        StudentOutput sO = studentServiceImp.getStudentById(id_student);
-        return sO;
+    public StudentOutput getStudentById(@PathVariable int id_student,
+                                        @RequestParam(value = "outputType", defaultValue = "simple") String outputType) {
+        if(outputType.equals("simple")){
+            StudentOutput sO = studentServiceImp.getStudentById(id_student);
+            return sO;
+        }else if(outputType.equals("full")){
+            return null;
+        }else{
+            return null;
+        }
     }
 
     @GetMapping("/estudiantes")

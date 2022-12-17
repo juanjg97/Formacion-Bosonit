@@ -1,7 +1,7 @@
-package com.bosonit.springdatavalidation.application.services;
+package com.bosonit.springdatavalidation.application.services.interfaces;
 
-import com.bosonit.springdatavalidation.controllers.dtos.PersonaInput;
-import com.bosonit.springdatavalidation.controllers.dtos.PersonaOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.inputs.PersonaInput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.PersonaOutput;
 
 public interface PersonaService {
     //Métodos para implementar la lógica de negocio más el CRUD

@@ -1,8 +1,7 @@
-package com.bosonit.springdatavalidation.application.services;
+package com.bosonit.springdatavalidation.application.services.interfaces;
 
-import com.bosonit.springdatavalidation.controllers.dtos.ProfesorInput;
-import com.bosonit.springdatavalidation.controllers.dtos.ProfesorOutput;
-import com.bosonit.springdatavalidation.domain.entities.Profesor;
+import com.bosonit.springdatavalidation.controllers.dtos.inputs.ProfesorInput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.ProfesorOutput;
 
 import java.util.List;
 

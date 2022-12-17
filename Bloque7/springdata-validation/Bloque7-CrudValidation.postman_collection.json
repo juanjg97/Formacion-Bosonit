@@ -69,7 +69,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n     \"num_hours_week\": 10 ,\r\n     \"comentarios\": \"Hola\",\r\n     \"rama\": \"Backend\",\r\n     \"id_usuario\": 1,\r\n     \"id_profesor\":1\r\n     \r\n}",
+					"raw": "{\r\n     \"num_hours_week\": 10 ,\r\n     \"comentarios\": \"Hola\",\r\n     \"rama\": \"Backend\",\r\n     \"id_usuario\": 2,\r\n     \"id_profesor\":1\r\n     \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -123,7 +123,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/persona/id/2",
+					"raw": "localhost:8080/persona/id/1?outputType=simple",
 					"host": [
 						"localhost"
 					],
@@ -131,7 +131,13 @@
 					"path": [
 						"persona",
 						"id",
-						"2"
+						"1"
+					],
+					"query": [
+						{
+							"key": "outputType",
+							"value": "simple"
+						}
 					]
 				}
 			},
@@ -143,7 +149,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/profesor/read/1",
+					"raw": "localhost:8080/profesor/read/1?outputType=simple",
 					"host": [
 						"localhost"
 					],
@@ -152,6 +158,12 @@
 						"profesor",
 						"read",
 						"1"
+					],
+					"query": [
+						{
+							"key": "outputType",
+							"value": "simple"
+						}
 					]
 				}
 			},
@@ -163,7 +175,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/student/1",
+					"raw": "localhost:8080/student/1?outputType=simple",
 					"host": [
 						"localhost"
 					],
@@ -171,6 +183,12 @@
 					"path": [
 						"student",
 						"1"
+					],
+					"query": [
+						{
+							"key": "outputType",
+							"value": "simple"
+						}
 					]
 				}
 			},
@@ -260,7 +278,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n     \"num_hours_week\": 10 ,\r\n     \"comentarios\": \"Hola\",\r\n     \"rama\": \"Frontend\",\r\n     \"id_usuario\": 1,\r\n     \"id_profesor\":1\r\n     \r\n}",
+					"raw": "{\r\n     \"num_hours_week\": 10 ,\r\n     \"comentarios\": \"Adios\",\r\n     \"rama\": \"aaaa\",\r\n     \"id_usuario\": 1,\r\n     \"id_profesor\":1\r\n     \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -289,7 +307,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id_asignatura\":1,\r\n    \"asignatura\":\"Español-1\",\r\n    \"comentarios\":\"hola\",\r\n    \"fecha_inicio\":\"2022-11-15\",\r\n    \"fecha_termino\":\"2022-11-16\",\r\n    \"id_student\":1\r\n}",
+					"raw": "{\r\n    \"id_asignatura\":1,\r\n    \"asignatura\":\"mATE-1\",\r\n    \"comentarios\":\"hola\",\r\n    \"fecha_inicio\":\"2022-11-15\",\r\n    \"fecha_termino\":\"2022-11-16\",\r\n    \"id_student\":1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

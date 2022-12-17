@@ -1,9 +1,9 @@
-package com.bosonit.springdatavalidation.application.services;
+package com.bosonit.springdatavalidation.application.services.implementations;
 
-import com.bosonit.springdatavalidation.controllers.dtos.AsignaturaOutput;
-import com.bosonit.springdatavalidation.controllers.dtos.ProfesorInput;
-import com.bosonit.springdatavalidation.controllers.dtos.StudentInput;
-import com.bosonit.springdatavalidation.controllers.dtos.StudentOutput;
+import com.bosonit.springdatavalidation.application.services.interfaces.StudentService;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.AsignaturaOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.inputs.StudentInput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.StudentOutput;
 import com.bosonit.springdatavalidation.domain.entities.Asignatura;
 import com.bosonit.springdatavalidation.domain.entities.Persona;
 import com.bosonit.springdatavalidation.domain.entities.Profesor;
@@ -22,11 +22,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 @Service
-public class StudentServiceImp implements StudentService{
+public class StudentServiceImp implements StudentService {
     @Autowired
     StudentRepositorio studentRepositorio;
     @Autowired

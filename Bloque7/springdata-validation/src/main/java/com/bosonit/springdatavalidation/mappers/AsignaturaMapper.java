@@ -1,7 +1,7 @@
 package com.bosonit.springdatavalidation.mappers;
 
-import com.bosonit.springdatavalidation.controllers.dtos.AsignaturaInput;
-import com.bosonit.springdatavalidation.controllers.dtos.AsignaturaOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.inputs.AsignaturaInput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.AsignaturaOutput;
 import com.bosonit.springdatavalidation.domain.entities.Asignatura;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

@@ -1,4 +1,4 @@
-package com.bosonit.springdatavalidation.controllers.dtos;
+package com.bosonit.springdatavalidation.controllers.dtos.outputs;
 
 import lombok.*;
 

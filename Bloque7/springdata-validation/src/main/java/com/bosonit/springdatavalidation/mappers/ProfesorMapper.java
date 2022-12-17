@@ -1,7 +1,7 @@
 package com.bosonit.springdatavalidation.mappers;
 
-import com.bosonit.springdatavalidation.controllers.dtos.ProfesorInput;
-import com.bosonit.springdatavalidation.controllers.dtos.ProfesorOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.inputs.ProfesorInput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.ProfesorOutput;
 import com.bosonit.springdatavalidation.domain.entities.Profesor;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

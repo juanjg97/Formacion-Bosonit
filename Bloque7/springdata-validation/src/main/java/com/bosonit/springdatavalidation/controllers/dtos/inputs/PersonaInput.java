@@ -1,5 +1,4 @@
-package com.bosonit.springdatavalidation.controllers.dtos;
-
+package com.bosonit.springdatavalidation.controllers.dtos.inputs;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +11,7 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PersonaOutput {
+public class PersonaInput {
     int id_usuario;
     String usuario;
     String password;
@@ -25,6 +24,4 @@ public class PersonaOutput {
     Date created_date;
     String image_url;
     Date termination_date;
-
-
 }

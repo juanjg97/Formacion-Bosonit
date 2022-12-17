@@ -1,9 +1,9 @@
-package com.bosonit.springdatavalidation.application.services;
+package com.bosonit.springdatavalidation.application.services.implementations;
 
-import com.bosonit.springdatavalidation.controllers.dtos.ProfesorInput;
-import com.bosonit.springdatavalidation.controllers.dtos.ProfesorOutput;
-import com.bosonit.springdatavalidation.controllers.dtos.StudentInput;
-import com.bosonit.springdatavalidation.controllers.dtos.StudentOutput;
+import com.bosonit.springdatavalidation.application.services.interfaces.ProfesorService;
+import com.bosonit.springdatavalidation.controllers.dtos.inputs.ProfesorInput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.ProfesorOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.StudentOutput;
 import com.bosonit.springdatavalidation.domain.entities.Persona;
 import com.bosonit.springdatavalidation.domain.entities.Profesor;
 import com.bosonit.springdatavalidation.domain.entities.Student;
@@ -15,7 +15,6 @@ import com.bosonit.springdatavalidation.repositories.PersonaRepositorio;
 import com.bosonit.springdatavalidation.repositories.ProfesorRepositorio;
 import com.bosonit.springdatavalidation.repositories.StudentRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.flyway.FlywayDataSource;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +23,7 @@ import java.util.NoSuchElementException;
 import java.util.stream.StreamSupport;
 
 @Service
-public class ProfesorServiceImp implements ProfesorService{
+public class ProfesorServiceImp implements ProfesorService {
     @Autowired
     ProfesorRepositorio profesorRepositorio;
     @Autowired

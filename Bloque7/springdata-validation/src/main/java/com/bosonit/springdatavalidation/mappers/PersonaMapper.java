@@ -1,7 +1,7 @@
 package com.bosonit.springdatavalidation.mappers;
 
-import com.bosonit.springdatavalidation.controllers.dtos.PersonaInput;
-import com.bosonit.springdatavalidation.controllers.dtos.PersonaOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.inputs.PersonaInput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.PersonaOutput;
 import com.bosonit.springdatavalidation.domain.entities.Persona;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

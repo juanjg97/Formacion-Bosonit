@@ -1,8 +1,8 @@
 package com.bosonit.springdatavalidation.controllers;
 
-import com.bosonit.springdatavalidation.application.services.AsignaturaServiceImp;
-import com.bosonit.springdatavalidation.controllers.dtos.AsignaturaInput;
-import com.bosonit.springdatavalidation.controllers.dtos.AsignaturaOutput;
+import com.bosonit.springdatavalidation.application.services.implementations.AsignaturaServiceImp;
+import com.bosonit.springdatavalidation.controllers.dtos.inputs.AsignaturaInput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.AsignaturaOutput;
 import com.bosonit.springdatavalidation.repositories.AsignaturaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

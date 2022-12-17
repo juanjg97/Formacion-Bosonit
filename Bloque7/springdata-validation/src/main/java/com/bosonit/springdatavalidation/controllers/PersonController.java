@@ -1,8 +1,8 @@
 package com.bosonit.springdatavalidation.controllers;
 
-import com.bosonit.springdatavalidation.application.services.PersonaServiceImp;
-import com.bosonit.springdatavalidation.controllers.dtos.PersonaInput;
-import com.bosonit.springdatavalidation.controllers.dtos.PersonaOutput;
+import com.bosonit.springdatavalidation.application.services.implementations.PersonaServiceImp;
+import com.bosonit.springdatavalidation.controllers.dtos.inputs.PersonaInput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.PersonaOutput;
 import com.bosonit.springdatavalidation.exceptions.EntityNotFoundException; //Importamos la excepción personalizada
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,13 +17,20 @@ public class PersonController {
     @Autowired
     PersonaServiceImp personaServiceImp;
 
-
+//Modificar para que acepte un requestParam**************************************************************************
     @GetMapping("/id/{id}")
-    public PersonaOutput getPersonaById(@PathVariable int id) {
-        PersonaOutput pO = personaServiceImp.getPersonaById(id);
-
-        return pO;
+    public PersonaOutput getPersonaById(@PathVariable int id,
+                                        @RequestParam(value = "outputType",defaultValue = "simple") String outputType) {
+        if(outputType.equals("simple")){
+            PersonaOutput pO = personaServiceImp.getPersonaById(id);
+            return pO;
+        }else if(outputType.equals("full")){
+            return null;
+        }else{
+            return null;
+        }
     }
+
 
     @GetMapping("/usuario/{usuario}")
     public PersonaOutput getPersonaByUsuario(@PathVariable String usuario) {

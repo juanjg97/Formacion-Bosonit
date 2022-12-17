@@ -1,6 +1,6 @@
-package com.bosonit.springdatavalidation.controllers.dtos;
+package com.bosonit.springdatavalidation.controllers.dtos.outputs;
 
-import com.bosonit.springdatavalidation.domain.entities.Persona;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.AsignaturaOutput;
 import lombok.*;
 
 import java.util.List;

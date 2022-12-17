@@ -1,4 +1,5 @@
-package com.bosonit.springdatavalidation.controllers.dtos;
+package com.bosonit.springdatavalidation.controllers.dtos.inputs;
+
 
 import lombok.*;
 
@@ -9,10 +10,12 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class AsignaturaOutput {
+public class AsignaturaInput {
+
     private int id_asignatura;
     private String asignatura;
     private String comentarios;
     private Date fecha_inicio;
     private Date fecha_termino;
+    private int id_student;
 }

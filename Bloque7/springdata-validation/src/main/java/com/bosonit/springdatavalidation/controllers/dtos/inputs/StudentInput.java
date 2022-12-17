@@ -1,4 +1,4 @@
-package com.bosonit.springdatavalidation.controllers.dtos;
+package com.bosonit.springdatavalidation.controllers.dtos.inputs;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

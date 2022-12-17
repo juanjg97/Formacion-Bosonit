@@ -1,7 +1,8 @@
-package com.bosonit.springdatavalidation.application.services;
+package com.bosonit.springdatavalidation.application.services.implementations;
 
-import com.bosonit.springdatavalidation.controllers.dtos.PersonaInput;
-import com.bosonit.springdatavalidation.controllers.dtos.PersonaOutput;
+import com.bosonit.springdatavalidation.application.services.interfaces.PersonaService;
+import com.bosonit.springdatavalidation.controllers.dtos.inputs.PersonaInput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.PersonaOutput;
 import com.bosonit.springdatavalidation.domain.entities.Persona;
 import com.bosonit.springdatavalidation.exceptions.EntityNotFoundException;
 import com.bosonit.springdatavalidation.exceptions.UnprocessableEntityException;

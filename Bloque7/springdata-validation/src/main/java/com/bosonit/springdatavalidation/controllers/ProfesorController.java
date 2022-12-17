@@ -1,8 +1,9 @@
 package com.bosonit.springdatavalidation.controllers;
 
-import com.bosonit.springdatavalidation.application.services.ProfesorServiceImp;
-import com.bosonit.springdatavalidation.controllers.dtos.ProfesorInput;
-import com.bosonit.springdatavalidation.controllers.dtos.ProfesorOutput;
+import com.bosonit.springdatavalidation.application.services.implementations.ProfesorServiceImp;
+import com.bosonit.springdatavalidation.controllers.dtos.inputs.ProfesorInput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.PersonaOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.ProfesorOutput;
 import com.bosonit.springdatavalidation.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,12 +24,19 @@ public class ProfesorController {
         ProfesorOutput pO = profesorServiceImp.addProfesor(profesorInput,profesorInput.getId_persona());
         return ResponseEntity.status(HttpStatus.CREATED).body(pO);
     }
-
+    //Modificar para que acepte un requestParam**************************************************************************
     @GetMapping("/read/{id_profesor}")
-    public ProfesorOutput getProfesorById(@PathVariable int id_profesor) {
-        ProfesorOutput pO = profesorServiceImp.getProfesorById(id_profesor);
+    public ProfesorOutput getProfesorById(@PathVariable int id_profesor,
+                                          @RequestParam(value = "outputType", defaultValue = "simple") String outputType) {
+        if(outputType.equals("simple")){
+            ProfesorOutput pO = profesorServiceImp.getProfesorById(id_profesor);
+            return pO;
+        }else if(outputType.equals("full")){
+            return null;
+        }else{
+            return null;
+        }
 
-        return pO;
     }
 
     @GetMapping("/readAll")
