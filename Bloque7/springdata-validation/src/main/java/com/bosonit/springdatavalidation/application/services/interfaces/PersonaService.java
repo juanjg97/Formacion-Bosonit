@@ -8,6 +8,7 @@ public interface PersonaService {
     PersonaOutput addPersona(PersonaInput personaInput) throws Exception; //Después usará .save()
     PersonaOutput updatePersona(PersonaInput personaInput);
     PersonaOutput getPersonaById(int id); //Después usará .findById()
+    PersonaOutput getPersonaById2(int id); //Después usará .findById()
 
     //Implementará método declarado en el repositorio
     PersonaOutput getPersonaByUsuario(String usuario); //Después usará findByUsuario() => Método personalizado

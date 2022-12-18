@@ -3,6 +3,8 @@ package com.bosonit.springdatavalidation.controllers;
 import com.bosonit.springdatavalidation.application.services.implementations.PersonaServiceImp;
 import com.bosonit.springdatavalidation.controllers.dtos.inputs.PersonaInput;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs.PersonaOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs_full.PersonaFullOutput;
+import com.bosonit.springdatavalidation.domain.entities.Persona;
 import com.bosonit.springdatavalidation.exceptions.EntityNotFoundException; //Importamos la excepción personalizada
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,13 +21,14 @@ public class PersonController {
 
 //Modificar para que acepte un requestParam**************************************************************************
     @GetMapping("/id/{id}")
-    public PersonaOutput getPersonaById(@PathVariable int id,
+    public ResponseEntity<?> getPersonaById(@PathVariable int id,
                                         @RequestParam(value = "outputType",defaultValue = "simple") String outputType) {
         if(outputType.equals("simple")){
             PersonaOutput pO = personaServiceImp.getPersonaById(id);
-            return pO;
+            return ResponseEntity.ok().body(pO);
         }else if(outputType.equals("full")){
-            return null;
+            PersonaFullOutput pFO = personaServiceImp.getPersonaById2(id);
+            return ResponseEntity.ok().body(pFO);
         }else{
             return null;
         }

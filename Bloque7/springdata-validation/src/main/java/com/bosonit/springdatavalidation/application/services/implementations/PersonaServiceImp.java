@@ -3,6 +3,7 @@ package com.bosonit.springdatavalidation.application.services.implementations;
 import com.bosonit.springdatavalidation.application.services.interfaces.PersonaService;
 import com.bosonit.springdatavalidation.controllers.dtos.inputs.PersonaInput;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs.PersonaOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs_full.PersonaFullOutput;
 import com.bosonit.springdatavalidation.domain.entities.Persona;
 import com.bosonit.springdatavalidation.exceptions.EntityNotFoundException;
 import com.bosonit.springdatavalidation.exceptions.UnprocessableEntityException;
@@ -45,6 +46,16 @@ public class PersonaServiceImp implements PersonaService {
             Persona p = personaRepositorio.findById(id).orElseThrow();
             PersonaOutput pO = PersonaMapper.pMapper.personaToPersonaOutput(p);
             return pO;
+        }catch (NoSuchElementException e) {
+            throw new EntityNotFoundException("No se encontró el id: " + id);
+        }
+    }
+
+    @Override
+    public PersonaFullOutput getPersonaById2(int id) {
+        try {
+            Persona p = personaRepositorio.findById(id).orElseThrow();
+            return p.personaToPersonaFullOutput();
         }catch (NoSuchElementException e) {
             throw new EntityNotFoundException("No se encontró el id: " + id);
         }
