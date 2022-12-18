@@ -20,6 +20,7 @@ import java.util.stream.StreamSupport;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@EqualsAndHashCode
 public class Profesor {
     @Id
     @GeneratedValue()
@@ -43,10 +44,12 @@ public class Profesor {
 
     public ProfesorFullOutput profesorToProfesorFullOutput(){
 
-        ProfesorFullOutput profesorFullOutput = new ProfesorFullOutput();
+
 
         PersonaOutput personaOutput = PersonaMapper.pMapper.personaToPersonaOutput(this.persona);
         List<StudentOutput> studentOutputList = this.studentList.stream().map(student-> StudentMapper.sMapper.studentToStudentOutput(student)).toList();
+
+        ProfesorFullOutput profesorFullOutput = new ProfesorFullOutput();
 
         profesorFullOutput.setPersonaOutput(personaOutput);
         profesorFullOutput.setStudents(studentOutputList);

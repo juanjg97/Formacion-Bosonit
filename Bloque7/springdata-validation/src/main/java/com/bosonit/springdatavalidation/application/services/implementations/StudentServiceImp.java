@@ -4,6 +4,7 @@ import com.bosonit.springdatavalidation.application.services.interfaces.StudentS
 import com.bosonit.springdatavalidation.controllers.dtos.outputs.AsignaturaOutput;
 import com.bosonit.springdatavalidation.controllers.dtos.inputs.StudentInput;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs.StudentOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs_full.StudentFullOutput;
 import com.bosonit.springdatavalidation.domain.entities.Asignatura;
 import com.bosonit.springdatavalidation.domain.entities.Persona;
 import com.bosonit.springdatavalidation.domain.entities.Profesor;
@@ -95,6 +96,30 @@ public class StudentServiceImp implements StudentService {
     }
 
     @Override
+    public StudentFullOutput getStudentById2(int id_student) {
+        try {
+            Student student = studentRepositorio.findById(id_student).orElseThrow();
+            StudentFullOutput studentFullOutput = student.studentToStudentFullOutput();
+
+            return studentFullOutput;
+        } catch (NoSuchElementException e){
+            throw new EntityNotFoundException("No se encontró el id: " + id_student);
+        }
+    }
+
+    @Override
+    public List<AsignaturaOutput> getAsignaturas(int id_student) {
+        try {
+            Student student = studentRepositorio.findById(id_student).orElseThrow();
+            StudentFullOutput studentFullOutput = student.studentToStudentFullOutput();
+
+            return studentFullOutput.getAsignaturas();
+        } catch (NoSuchElementException e){
+            throw new EntityNotFoundException("No se encontró el id: " + id_student);
+        }
+    }
+
+    @Override
     public List<StudentOutput> getAllStudents(int pageNumber, int pageSize) {
         PageRequest pageRequest = PageRequest.of(pageNumber, pageSize);
 
@@ -115,9 +140,10 @@ public class StudentServiceImp implements StudentService {
             Student oldStudent = studentRepositorio.findById(id_student).orElseThrow();
             Student newStudent = StudentMapper.sMapper.studentInputToStudent(studentInput);
 
-            newStudent.setProfesor(profesor);
-            newStudent.setPersona(persona);
             newStudent.setId_student(oldStudent.getId_student());
+
+            newStudent.setPersona(persona);
+            newStudent.setProfesor(profesor);
 
 
             List<Student> studentsList = profesor.getStudentList();

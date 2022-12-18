@@ -4,7 +4,6 @@ package com.bosonit.springdatavalidation.domain.entities;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs.ProfesorOutput;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs.StudentOutput;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs_full.PersonaFullOutput;
-import com.bosonit.springdatavalidation.controllers.dtos.outputs_full.StudentOutputFull;
 import com.bosonit.springdatavalidation.mappers.ProfesorMapper;
 import com.bosonit.springdatavalidation.mappers.StudentMapper;
 import jakarta.persistence.*;

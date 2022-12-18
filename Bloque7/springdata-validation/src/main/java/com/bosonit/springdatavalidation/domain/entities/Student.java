@@ -1,5 +1,12 @@
 package com.bosonit.springdatavalidation.domain.entities;
 
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.AsignaturaOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.PersonaOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.ProfesorOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs_full.StudentFullOutput;
+import com.bosonit.springdatavalidation.mappers.AsignaturaMapper;
+import com.bosonit.springdatavalidation.mappers.PersonaMapper;
+import com.bosonit.springdatavalidation.mappers.ProfesorMapper;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -13,6 +20,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 public class Student {
     @Id
     @GeneratedValue
@@ -41,6 +49,23 @@ public class Student {
 
     @Column(nullable = false, name = "rama")
     private String rama;
+
+    public StudentFullOutput studentToStudentFullOutput(){
+        PersonaOutput personaOutput = PersonaMapper.pMapper.personaToPersonaOutput(this.persona);
+
+        List<AsignaturaOutput> asignaturaOutputList= this.asignaturaList.stream().map(asignatura -> AsignaturaMapper.aMapper.asignaturaToAsignaturaOutput(asignatura)).toList();
+
+        StudentFullOutput studentFullOutput = new StudentFullOutput();
+
+        studentFullOutput.setPersonaOutput(personaOutput);
+        studentFullOutput.setAsignaturas(asignaturaOutputList);
+        studentFullOutput.setId_student(this.id_student);
+        studentFullOutput.setRama(this.rama);
+        studentFullOutput.setComentarios(this.comentarios);
+        studentFullOutput.setNum_hours_week(this.num_hours_week);
+
+        return studentFullOutput;
+    }
 
 
 }

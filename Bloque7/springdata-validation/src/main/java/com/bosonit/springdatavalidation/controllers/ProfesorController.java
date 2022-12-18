@@ -27,7 +27,7 @@ public class ProfesorController {
     }
     //Modificar para que acepte un requestParam**************************************************************************
     @GetMapping("/read/{id_profesor}")
-    public ResponseEntity<ProfesorOutput> getProfesorById(@PathVariable int id_profesor,
+    public ResponseEntity<?> getProfesorById(@PathVariable int id_profesor,
                                           @RequestParam(value = "outputType", defaultValue = "simple") String outputType) {
         if(outputType.equals("simple")){
             ProfesorOutput pO = profesorServiceImp.getProfesorById(id_profesor);

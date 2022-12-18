@@ -5,11 +5,13 @@ import com.bosonit.springdatavalidation.controllers.dtos.inputs.PersonaInput;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs.PersonaOutput;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs_full.PersonaFullOutput;
 import com.bosonit.springdatavalidation.domain.entities.Persona;
+import com.bosonit.springdatavalidation.domain.entities.Profesor;
 import com.bosonit.springdatavalidation.exceptions.EntityNotFoundException;
 import com.bosonit.springdatavalidation.exceptions.UnprocessableEntityException;
 import com.bosonit.springdatavalidation.mappers.PersonaMapper;
 import com.bosonit.springdatavalidation.repositories.PersonaRepositorio;
 
+import com.bosonit.springdatavalidation.repositories.ProfesorRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,8 @@ import java.util.stream.StreamSupport;
 public class PersonaServiceImp implements PersonaService {
     @Autowired
     PersonaRepositorio personaRepositorio; //.save(), .findById(), .findByUsuario(), findAll()
+    @Autowired
+    private ProfesorRepositorio profesorRepositorio;
 
     @Override
     public PersonaOutput addPersona(PersonaInput personaInput) throws Exception {
@@ -64,9 +68,11 @@ public class PersonaServiceImp implements PersonaService {
     @Override
     public PersonaOutput updatePersona(PersonaInput personaInput) {
         try {
+
             getPersonaById(personaInput.getId_usuario());
             Persona persona = PersonaMapper.pMapper.personaInputToPersona(personaInput);
             PersonaOutput personaOutput= PersonaMapper.pMapper.personaToPersonaOutput(personaRepositorio.save(persona));
+
             return personaOutput;
         } catch (NoSuchElementException e) {
             throw new EntityNotFoundException("Persona no encontrada");
