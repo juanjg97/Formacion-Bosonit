@@ -105,8 +105,6 @@ public class ProfesorServiceImp implements ProfesorService {
     @Override
     public ProfesorOutput updateProfesorById(int id_profesor, ProfesorInput profesorInput) {
         try {
-            Persona persona = personaRepositorio.findById(profesorInput.getId_persona()).orElseThrow();
-
             Profesor profe = profesorRepositorio.findById(id_profesor).orElseThrow();
 
             profe.setRama(profesorInput.getRama());
@@ -117,10 +115,9 @@ public class ProfesorServiceImp implements ProfesorService {
                     .map(student->StudentMapper.sMapper.studentToStudentOutput(student))
                     .toList();
 
-
             ProfesorOutput profesorOutput = ProfesorMapper.pMapper.profesorToProfesorOutput(profesorRepositorio.save(profe));
-
             profesorOutput.setStudents(studentsOutput);
+
             return profesorOutput;
         } catch (NoSuchElementException e) {
             throw new EntityNotFoundException("Persona no encontrada");

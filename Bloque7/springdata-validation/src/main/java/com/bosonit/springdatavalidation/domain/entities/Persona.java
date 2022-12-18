@@ -1,9 +1,11 @@
 package com.bosonit.springdatavalidation.domain.entities;
 
 
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.AsignaturaOutput;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs.ProfesorOutput;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs.StudentOutput;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs_full.PersonaFullOutput;
+import com.bosonit.springdatavalidation.mappers.AsignaturaMapper;
 import com.bosonit.springdatavalidation.mappers.ProfesorMapper;
 import com.bosonit.springdatavalidation.mappers.StudentMapper;
 import jakarta.persistence.*;
@@ -13,7 +15,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.StreamSupport;
 
 @Entity
 @Table(name = "persona")
@@ -58,8 +62,33 @@ public class Persona {
     private Profesor profesor;
 
     public PersonaFullOutput personaToPersonaFullOutput() {
-        ProfesorOutput pO = (Objects.equals(this.profesor, null)) ? null : (ProfesorMapper.pMapper.profesorToProfesorOutput(this.profesor));
-        StudentOutput sO = (Objects.equals(this.student,null)) ? null: (StudentMapper.sMapper.studentToStudentOutput(this.student));
+
+        ProfesorOutput pO = new ProfesorOutput();
+
+        if(!(Objects.equals(this.profesor, null))){
+            pO=ProfesorMapper.pMapper.profesorToProfesorOutput(this.profesor);
+            List<Student> students = this.profesor.getStudentList();
+            List<StudentOutput> studentsOutput = StreamSupport.stream(students.spliterator(),false)
+                    .map(student->StudentMapper.sMapper.studentToStudentOutput(student))
+                    .toList();
+            pO.setStudents(studentsOutput);
+        }else{
+            pO=null;
+        }
+
+        StudentOutput sO = new StudentOutput();
+
+        if(!(Objects.equals(this.student, null))){
+            sO = StudentMapper.sMapper.studentToStudentOutput(this.student);
+            List<Asignatura> asignaturaList = this.student.getAsignaturaList();
+            List<AsignaturaOutput> asignaturaOutputList = StreamSupport.stream(asignaturaList.spliterator(),false)
+                    .map(asignatura-> AsignaturaMapper.aMapper.asignaturaToAsignaturaOutput(asignatura))
+                    .toList();
+            sO.setAsignaturas(asignaturaOutputList);
+        }else{
+            sO=null;
+        }
+
 
         PersonaFullOutput personaFullOutput = new PersonaFullOutput();
 

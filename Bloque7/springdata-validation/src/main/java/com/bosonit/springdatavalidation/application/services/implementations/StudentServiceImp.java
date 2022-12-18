@@ -134,24 +134,19 @@ public class StudentServiceImp implements StudentService {
     @Override
     public StudentOutput updateStudentById(int id_student, StudentInput studentInput) {
         try {
-            Profesor profesor = profesorRepositorio.findById(studentInput.getId_profesor()).orElseThrow();
-            Persona  persona = personaRepositorio.findById(studentInput.getId_usuario()).orElseThrow();
 
-            Student oldStudent = studentRepositorio.findById(id_student).orElseThrow();
-            Student newStudent = StudentMapper.sMapper.studentInputToStudent(studentInput);
+            Student student = studentRepositorio.findById(id_student).orElseThrow();
+            StudentInput studentInput1 = studentInput;
 
-            newStudent.setId_student(oldStudent.getId_student());
+            student.setNum_hours_week(studentInput1.getNum_hours_week());
+            student.setComentarios(studentInput1.getComentarios());
+            student.setRama(studentInput1.getRama());
 
-            newStudent.setPersona(persona);
-            newStudent.setProfesor(profesor);
+            StudentOutput estudianteOutput=StudentMapper.sMapper.studentToStudentOutput(studentRepositorio.save(student));
+            List<Asignatura> asignaturasList= student.getAsignaturaList();
+             List<AsignaturaOutput> asignaturaOutputList = asignaturasList.stream().map(asignatura -> AsignaturaMapper.aMapper.asignaturaToAsignaturaOutput(asignatura)).toList();
+          estudianteOutput.setAsignaturas(asignaturaOutputList);
 
-
-            List<Student> studentsList = profesor.getStudentList();
-            studentsList.add(newStudent);
-            profesor.setStudentList(studentsList);
-            profesorRepositorio.save(profesor);
-
-            StudentOutput estudianteOutput=StudentMapper.sMapper.studentToStudentOutput(studentRepositorio.save(newStudent));
            return estudianteOutput;
         } catch (NoSuchElementException e) {
             throw new EntityNotFoundException("Persona no encontrada");

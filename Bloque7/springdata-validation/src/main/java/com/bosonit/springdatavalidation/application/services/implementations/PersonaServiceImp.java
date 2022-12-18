@@ -70,30 +70,23 @@ public class PersonaServiceImp implements PersonaService {
         try {
 
             Persona p = personaRepositorio.findById(personaInput.getId_usuario()).orElseThrow();
-            /**
-             *
-             int id_usuario;
-             String usuario;
-             String password;
-             String name;
-             String surname;
-             String company_email;
-             String personal_email;
-             String city;
-             boolean active;
-             Date created_date;
-             String image_url;
-             Date termination_date; *
 
-             p.setProfesor(personaInput.g);
+            // int id_usuario;
+            p.setUsuario(personaInput.getUsuario());// String usuario;
+            p.setPassword(personaInput.getPassword());// String password;
+            p.setName(personaInput.getName());// String name;
+            p.setSurname(personaInput.getSurname());// String surname;
+            p.setCompany_email(personaInput.getCompany_email());// String company_email;
+            p.setPersonal_email(personaInput.getPersonal_email());// String personal_email;
+            p.setCity(personaInput.getCity());// String city;
+            p.setActive(personaInput.isActive());// boolean active;
+            p.setCreated_date(personaInput.getCreated_date());// Date created_date;
+            p.setImage_url(personaInput.getImage_url());// String image_url;
+            p.setTermination_date(personaInput.getTermination_date());// Date termination_date;
 
-             p.getUsuario(persona)
 
-             */
 
-            Persona persona = PersonaMapper.pMapper.personaInputToPersona(personaInput);
-
-            PersonaOutput personaOutput= PersonaMapper.pMapper.personaToPersonaOutput(personaRepositorio.save(persona));
+            PersonaOutput personaOutput= PersonaMapper.pMapper.personaToPersonaOutput(personaRepositorio.save(p));
 
             return personaOutput;
         } catch (NoSuchElementException e) {
