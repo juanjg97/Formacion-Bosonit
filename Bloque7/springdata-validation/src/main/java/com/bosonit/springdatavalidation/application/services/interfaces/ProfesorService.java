@@ -8,6 +8,7 @@ import java.util.List;
 public interface ProfesorService {
     ProfesorOutput addProfesor(ProfesorInput profesorInput, int id_usuario) throws Exception;
     ProfesorOutput getProfesorById(int id_profesor);
+    ProfesorOutput getProfesorById2(int id_profesor);
     List<ProfesorOutput> getAllProfesores(int pageNumber, int pageSize);
     ProfesorOutput updateProfesorById(int id_profesor, ProfesorInput profesorInput);
     void deleteProfesorById(int id_profesor);

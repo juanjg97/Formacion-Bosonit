@@ -4,6 +4,7 @@ import com.bosonit.springdatavalidation.application.services.interfaces.Profesor
 import com.bosonit.springdatavalidation.controllers.dtos.inputs.ProfesorInput;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs.ProfesorOutput;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs.StudentOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs_full.ProfesorFullOutput;
 import com.bosonit.springdatavalidation.domain.entities.Persona;
 import com.bosonit.springdatavalidation.domain.entities.Profesor;
 import com.bosonit.springdatavalidation.domain.entities.Student;
@@ -78,6 +79,14 @@ public class ProfesorServiceImp implements ProfesorService {
         } catch (NoSuchElementException e){
             throw new EntityNotFoundException("No se encontró el profesor con id: " + id_profesor);
         }
+    }
+
+    @Override
+    public ProfesorFullOutput getProfesorById2(int id_profesor) {
+        Profesor profesor = profesorRepositorio.findById(id_profesor).orElseThrow();
+        ProfesorFullOutput profesorFullOutput = profesor.profesorToProfesorFullOutput();
+
+        return profesorFullOutput;
     }
 
     @Override

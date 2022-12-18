@@ -4,6 +4,7 @@ import com.bosonit.springdatavalidation.application.services.implementations.Pro
 import com.bosonit.springdatavalidation.controllers.dtos.inputs.ProfesorInput;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs.PersonaOutput;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs.ProfesorOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs_full.ProfesorFullOutput;
 import com.bosonit.springdatavalidation.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,13 +27,14 @@ public class ProfesorController {
     }
     //Modificar para que acepte un requestParam**************************************************************************
     @GetMapping("/read/{id_profesor}")
-    public ProfesorOutput getProfesorById(@PathVariable int id_profesor,
+    public ResponseEntity<ProfesorOutput> getProfesorById(@PathVariable int id_profesor,
                                           @RequestParam(value = "outputType", defaultValue = "simple") String outputType) {
         if(outputType.equals("simple")){
             ProfesorOutput pO = profesorServiceImp.getProfesorById(id_profesor);
-            return pO;
+            return ResponseEntity.ok().body(pO);
         }else if(outputType.equals("full")){
-            return null;
+            ProfesorFullOutput pFO = profesorServiceImp.getProfesorById2(id_profesor);
+            return ResponseEntity.ok().body(pFO);
         }else{
             return null;
         }

@@ -1,11 +1,17 @@
 package com.bosonit.springdatavalidation.domain.entities;
 
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.PersonaOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.StudentOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs_full.ProfesorFullOutput;
+import com.bosonit.springdatavalidation.mappers.PersonaMapper;
+import com.bosonit.springdatavalidation.mappers.StudentMapper;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.StreamSupport;
 
 @Entity
 @Table(name = "profesor")
@@ -35,5 +41,20 @@ public class Profesor {
     @Column(nullable = false, name = "rama")
     private String rama;
 
+    public ProfesorFullOutput profesorToProfesorFullOutput(){
+
+        ProfesorFullOutput profesorFullOutput = new ProfesorFullOutput();
+
+        PersonaOutput personaOutput = PersonaMapper.pMapper.personaToPersonaOutput(this.persona);
+        List<StudentOutput> studentOutputList = this.studentList.stream().map(student-> StudentMapper.sMapper.studentToStudentOutput(student)).toList();
+
+        profesorFullOutput.setPersonaOutput(personaOutput);
+        profesorFullOutput.setStudents(studentOutputList);
+        profesorFullOutput.setId_profesor(this.id_profesor);
+        profesorFullOutput.setRama(this.rama);
+        profesorFullOutput.setComentarios(this.comentarios);
+
+        return profesorFullOutput;
+    }
 
 }
