@@ -118,12 +118,32 @@
 			"response": []
 		},
 		{
+			"name": "ProfesorFeign",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/persona/profesor/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"persona",
+						"profesor",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "PersonaPorId",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/persona/id/1?outputType=simple",
+					"raw": "localhost:8080/persona/id/1?outputType=full",
 					"host": [
 						"localhost"
 					],
@@ -136,7 +156,7 @@
 					"query": [
 						{
 							"key": "outputType",
-							"value": "simple"
+							"value": "full"
 						}
 					]
 				}
