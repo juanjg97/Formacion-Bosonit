@@ -3,8 +3,10 @@ package com.bosonit.springdatavalidation.controllers;
 import com.bosonit.springdatavalidation.application.services.implementations.PersonaServiceImp;
 import com.bosonit.springdatavalidation.controllers.dtos.inputs.PersonaInput;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs.PersonaOutput;
+import com.bosonit.springdatavalidation.controllers.dtos.outputs.ProfesorOutput;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs_full.PersonaFullOutput;
 import com.bosonit.springdatavalidation.domain.entities.Persona;
+import com.bosonit.springdatavalidation.domain.entities.feign.ProfesorFeign;
 import com.bosonit.springdatavalidation.exceptions.EntityNotFoundException; //Importamos la excepción personalizada
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +20,8 @@ import java.util.NoSuchElementException;
 public class PersonController {
     @Autowired
     PersonaServiceImp personaServiceImp;
+    @Autowired
+    ProfesorFeign profesorFeign;
 
 //Modificar para que acepte un requestParam**************************************************************************
     @GetMapping("/id/{id}")
@@ -78,6 +82,10 @@ public class PersonController {
         personaServiceImp.deletePersona(id);
 
         return ResponseEntity.ok().body(po);
+    }
+    @GetMapping("profesor/{id}")
+    public ProfesorOutput getProfesor(@PathVariable String id) {
+        return profesorFeign.getProfesorById(id, "simple");
     }
 
 }
