@@ -69,8 +69,30 @@ public class PersonaServiceImp implements PersonaService {
     public PersonaOutput updatePersona(PersonaInput personaInput) {
         try {
 
-            getPersonaById(personaInput.getId_usuario());
+            Persona p = personaRepositorio.findById(personaInput.getId_usuario()).orElseThrow();
+            /**
+             *
+             int id_usuario;
+             String usuario;
+             String password;
+             String name;
+             String surname;
+             String company_email;
+             String personal_email;
+             String city;
+             boolean active;
+             Date created_date;
+             String image_url;
+             Date termination_date; *
+
+             p.setProfesor(personaInput.g);
+
+             p.getUsuario(persona)
+
+             */
+
             Persona persona = PersonaMapper.pMapper.personaInputToPersona(personaInput);
+
             PersonaOutput personaOutput= PersonaMapper.pMapper.personaToPersonaOutput(personaRepositorio.save(persona));
 
             return personaOutput;

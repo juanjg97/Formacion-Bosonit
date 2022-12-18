@@ -105,18 +105,20 @@ public class ProfesorServiceImp implements ProfesorService {
     @Override
     public ProfesorOutput updateProfesorById(int id_profesor, ProfesorInput profesorInput) {
         try {
-            Profesor oldProfesor = profesorRepositorio.findById(id_profesor).orElseThrow();
+            Persona persona = personaRepositorio.findById(profesorInput.getId_persona()).orElseThrow();
 
-            Profesor newProfesor = ProfesorMapper.pMapper.profesorInputToProfesor(profesorInput);
-            newProfesor.setId_profesor(oldProfesor.getId_profesor());
-            newProfesor.setStudentList(oldProfesor.getStudentList());
+            Profesor profe = profesorRepositorio.findById(id_profesor).orElseThrow();
 
-            ProfesorOutput profesorOutput = ProfesorMapper.pMapper.profesorToProfesorOutput(profesorRepositorio.save(newProfesor));
+            profe.setRama(profesorInput.getRama());
+            profe.setComentarios(profesorInput.getComentarios());
 
-            List<Student> students = newProfesor.getStudentList();
+            List<Student> students = profe.getStudentList();
             List<StudentOutput> studentsOutput = StreamSupport.stream(students.spliterator(),false)
-                                                              .map(student->StudentMapper.sMapper.studentToStudentOutput(student))
-                                                              .toList();
+                    .map(student->StudentMapper.sMapper.studentToStudentOutput(student))
+                    .toList();
+
+
+            ProfesorOutput profesorOutput = ProfesorMapper.pMapper.profesorToProfesorOutput(profesorRepositorio.save(profe));
 
             profesorOutput.setStudents(studentsOutput);
             return profesorOutput;
