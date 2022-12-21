@@ -14,6 +14,7 @@
         <module name="springdata" />
         <module name="examen_jpa_cascade" />
         <module name="block7-crud" />
+        <module name="block10-dockerize-app" />
         <module name="demo" />
         <module name="block3-maven-package" />
         <module name="b-Statics" />
@@ -42,6 +43,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Controladores" options="-parameters" />
+      <module name="block10-dockerize-app" options="-parameters" />
       <module name="block5-command-line-runner" options="-parameters" />
       <module name="block5-profiles" options="-parameters" />
       <module name="block6-path-variable-headers" options="-parameters" />

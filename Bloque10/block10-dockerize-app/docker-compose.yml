@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  postgres_container:
+    image: postgres:latest
+    container_name: postgres_container
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=juan
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=DataBasePostgres1
+
+    networks:
+      - b10-red
+
+  pgadmin_container:
+    image: dpage/pgadmin4
+    container_name: pgadmin_container
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "juan@mail.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    networks:
+      - b10-red
+    ports:
+      - "80:80"
+    links:
+      - postgres_container
+    depends_on:
+      - postgres_container
+
+  block10_dockerize_app:
+    build: .
+    container_name: block10_dockerize_app
+    networks:
+      - b10-red
+    ports:
+      - "8080:8080"
+    links:
+      - postgres_container
+    depends_on:
+      - postgres_container
+networks:
+  b10-red:
+    driver: bridge
