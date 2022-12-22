@@ -16,12 +16,28 @@ import org.springframework.web.bind.annotation.*;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("/persona")
+//@RequestMapping("/persona")
 public class PersonController {
     @Autowired
     PersonaServiceImp personaServiceImp;
     @Autowired
     ProfesorFeign profesorFeign;
+
+    @CrossOrigin(origins= "https://cdpn.io")
+    @PostMapping("/addperson")
+    public ResponseEntity<PersonaOutput> addPersona(@RequestBody PersonaInput personaInput) throws Exception{
+        PersonaOutput pO= personaServiceImp.addPersona(personaInput);
+        return ResponseEntity.status(HttpStatus.CREATED).body(pO);
+    }
+
+    @CrossOrigin(origins= "https://cdpn.io")
+    @GetMapping("/getall")
+    public Iterable<PersonaOutput> getAllPersonas(@RequestParam(defaultValue = "0", required = false) int pageNumber,
+                                                  @RequestParam(defaultValue = "4", required = false) int pageSize) {
+        System.out.println("Entrando a la función obtener todas las personas");
+        Iterable<PersonaOutput>  personasO = personaServiceImp.getAllPersonas(pageNumber,pageSize);
+        return personasO;
+    }
 
 //Modificar para que acepte un requestParam**************************************************************************
     @GetMapping("/id/{id}")
@@ -47,21 +63,9 @@ public class PersonController {
     }
 
 
-    @GetMapping("/personas")
-    public Iterable<PersonaOutput> getAllPersonas(@RequestParam(defaultValue = "0", required = false) int pageNumber,
-                                                  @RequestParam(defaultValue = "4", required = false) int pageSize) {
-        System.out.println("Entrando a la función obtener todas las personas");
-        Iterable<PersonaOutput>  personasO = personaServiceImp.getAllPersonas(pageNumber,pageSize);
-        return personasO;
-    }
 
     //-------------------------------------------------
 
-    @PostMapping("/addPersona")
-    public ResponseEntity<PersonaOutput> addPersona(@RequestBody PersonaInput personaInput) throws Exception{
-        PersonaOutput pO= personaServiceImp.addPersona(personaInput);
-        return ResponseEntity.status(HttpStatus.CREATED).body(pO);
-    }
 
     @PutMapping("/updatePersona")
     public ResponseEntity<PersonaOutput> updatePersona(@RequestBody PersonaInput personaInput) {

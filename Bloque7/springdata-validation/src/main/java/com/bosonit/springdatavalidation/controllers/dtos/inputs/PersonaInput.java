@@ -1,5 +1,6 @@
 package com.bosonit.springdatavalidation.controllers.dtos.inputs;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,7 @@ public class PersonaInput {
     String city;
     boolean active;
     Date created_date;
+    @JsonProperty("imagen_url")
     String image_url;
     Date termination_date;
 }
