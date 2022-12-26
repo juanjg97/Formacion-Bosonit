@@ -22,6 +22,7 @@
         <module name="c-Wrapper" />
         <module name="demo (1)" />
         <module name="demo (4)" />
+        <module name="block12-kafka" />
         <module name="demo (3)" />
         <module name="block5-command-line-runner" />
         <module name="block6-person-controllers" />
@@ -46,6 +47,7 @@
       <module name="Controladores" options="-parameters" />
       <module name="block10-dockerize-app" options="-parameters" />
       <module name="block11-upload-download-files" options="-parameters" />
+      <module name="block12-kafka" options="-parameters" />
       <module name="block5-command-line-runner" options="-parameters" />
       <module name="block5-profiles" options="-parameters" />
       <module name="block6-path-variable-headers" options="-parameters" />

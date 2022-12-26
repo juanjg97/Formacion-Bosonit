@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "526f3ef7-65ab-49bd-830f-0ddfa629fc12",
+		"name": "Bloque12-Kafka",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24612743"
+	},
+	"item": [
+		{
+			"name": "ProducerMensaje",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Hola desde postman",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/mensaje",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"mensaje"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
