@@ -1,6 +1,7 @@
 package com.bosonit.block12kafka.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +15,8 @@ public class ProducerController {
     KafkaTemplate<String, String> kafkaTemplate;
 
     @PostMapping
-    public void enviarMensaje(@RequestBody String mensaje) {
+    public ResponseEntity<?> enviarMensaje(@RequestBody String mensaje) {
         kafkaTemplate.send("juan-topic", mensaje);
+        return ResponseEntity.ok().body("Se mandó el mensaje: "+mensaje+"\n Revisa el log de springboot");
     }
 }
