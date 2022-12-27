@@ -552,7 +552,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/person/fields?name=rbl&user=Rafael&surname=Ortuño&creationDate=2021-09-12&orderBy=name",
+					"raw": "localhost:8080/person/fields?name=Juan &usuario=Juanjo1&surname=Jasso&created_date=27-11-1997&orderBy=usuario",
 					"host": [
 						"localhost"
 					],
@@ -564,23 +564,28 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "rbl"
+							"value": "Juan "
 						},
 						{
-							"key": "user",
-							"value": "Rafael"
+							"key": "usuario",
+							"value": "Juanjo1"
 						},
 						{
 							"key": "surname",
-							"value": "Ortuño"
+							"value": "Jasso"
 						},
 						{
-							"key": "creationDate",
-							"value": "2021-09-12"
+							"key": "created_date",
+							"value": "27-11-1997"
 						},
 						{
 							"key": "orderBy",
-							"value": "name"
+							"value": "usuario"
+						},
+						{
+							"key": "orderBy",
+							"value": "name",
+							"disabled": true
 						}
 					]
 				}
@@ -604,14 +609,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/person/paginated?offset=1",
+					"raw": "localhost:8080/person/page?offset=1&pageSize=10",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"person",
-						"paginated"
+						"page"
 					],
 					"query": [
 						{
@@ -620,8 +625,7 @@
 						},
 						{
 							"key": "pageSize",
-							"value": "10",
-							"disabled": true
+							"value": "10"
 						}
 					]
 				}
