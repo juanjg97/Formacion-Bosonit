@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"usuario\":\"Mario\",\r\n    \"password\": \"12345\",\r\n     \"name\": \"Juan Jose\",\r\n     \"surname\": \"Jasso\",\r\n     \"company_email\": \"juan@bosonit.com\",\r\n     \"personal_email\": \"juan@gmail.com\",\r\n     \"city\": \"Toluca\",\r\n     \"active\": true,\r\n     \"created_date\": \"2022-11-15\",\r\n     \"image_url\": \"www.image.com\",\r\n     \"termination_date\":\"2022-11-16\"\r\n}",
+					"raw": "{\r\n    \"usuario\":\"Juanjo1\",\r\n    \"password\": \"12345\",\r\n     \"name\": \"Juan \",\r\n     \"surname\": \"Jasso\",\r\n     \"company_email\": \"juan@bosonit.com\",\r\n     \"personal_email\": \"juan@gmail.com\",\r\n     \"city\": \"Toluca\",\r\n     \"active\": true,\r\n     \"created_date\": \"2022-11-15\",\r\n     \"image_url\": \"www.image.com\",\r\n     \"termination_date\":\"2022-11-16\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -21,14 +21,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/persona/addPersona",
+					"raw": "localhost:8080/addperson",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"persona",
-						"addPersona"
+						"addperson"
 					]
 				}
 			},
@@ -375,14 +374,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/persona/personas?pageNumber=0&pageSize=8",
+					"raw": "localhost:8080/getall?pageNumber=0&pageSize=8",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"persona",
-						"personas"
+						"getall"
 					],
 					"query": [
 						{
@@ -552,7 +550,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/person/fields?name=Juan &usuario=Juanjo1&surname=Jasso&created_date=27-11-1997&orderBy=usuario",
+					"raw": "localhost:8080/person/fields?created_date=27-11-1997&orderBy=name",
 					"host": [
 						"localhost"
 					],
@@ -564,15 +562,18 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "Juan "
+							"value": "Juan ",
+							"disabled": true
 						},
 						{
 							"key": "usuario",
-							"value": "Juanjo1"
+							"value": "Juanjo1",
+							"disabled": true
 						},
 						{
 							"key": "surname",
-							"value": "Jasso"
+							"value": "Jasso",
+							"disabled": true
 						},
 						{
 							"key": "created_date",
@@ -580,12 +581,12 @@
 						},
 						{
 							"key": "orderBy",
-							"value": "usuario"
+							"value": "usuario",
+							"disabled": true
 						},
 						{
 							"key": "orderBy",
-							"value": "name",
-							"disabled": true
+							"value": "name"
 						}
 					]
 				}
