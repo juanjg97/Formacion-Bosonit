@@ -23,7 +23,7 @@ public class PersonaInput {
     String city;
     boolean active;
     Date created_date;
-    @JsonProperty("imagen_url")
+   // @JsonProperty("imagen_url")
     String image_url;
     Date termination_date;
 }

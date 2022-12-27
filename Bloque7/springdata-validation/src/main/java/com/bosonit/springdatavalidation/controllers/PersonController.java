@@ -5,14 +5,17 @@ import com.bosonit.springdatavalidation.controllers.dtos.inputs.PersonaInput;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs.PersonaOutput;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs.ProfesorOutput;
 import com.bosonit.springdatavalidation.controllers.dtos.outputs_full.PersonaFullOutput;
-import com.bosonit.springdatavalidation.domain.entities.Persona;
 import com.bosonit.springdatavalidation.domain.entities.feign.ProfesorFeign;
-import com.bosonit.springdatavalidation.exceptions.EntityNotFoundException; //Importamos la excepción personalizada
+import com.bosonit.springdatavalidation.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
@@ -62,11 +65,6 @@ public class PersonController {
         return pO;
     }
 
-
-
-    //-------------------------------------------------
-
-
     @PutMapping("/updatePersona")
     public ResponseEntity<PersonaOutput> updatePersona(@RequestBody PersonaInput personaInput) {
         try {
@@ -90,6 +88,26 @@ public class PersonController {
     @GetMapping("profesor/{id}")
     public ProfesorOutput getProfesor(@PathVariable String id) {
         return profesorFeign.getProfesorById(id, "simple");
+    }
+
+    @GetMapping("person/fields")
+    public List<PersonaOutput> personByFields(@RequestParam(name = "usuario", required = false) String usuario,
+                                              @RequestParam(name = "name", required = false) String name,
+                                              @RequestParam(name = "surname", required = false) String surname,
+                                              @RequestParam(name = "created_date", required = false) @DateTimeFormat(pattern="dd-MM-yyyy") Date created_date,
+                                              @RequestParam(name = "orderBy", defaultValue = "usuario", required = false) String orderBy) throws Exception {
+
+        List<PersonaOutput> personasOutput = personaServiceImp.personByFields(usuario, name, surname, created_date, orderBy);
+
+        return personasOutput;
+    }
+
+    @GetMapping("person/page")
+    public Page<PersonaOutput> allPersonByPage(@RequestParam(value = "offset") int offset,
+                                                       @RequestParam(value = "pageSize", defaultValue = "10") int pageSize) {
+        Page<PersonaOutput> personasOutput = personaServiceImp.searchAllWithPagination(offset, pageSize);
+
+        return personasOutput;
     }
 
 }
