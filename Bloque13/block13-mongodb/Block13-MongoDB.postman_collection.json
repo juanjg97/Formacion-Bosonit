@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "f383509c-37d3-4794-a75e-1edffc343624",
+		"name": "Block13-MongoDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24612743"
+	},
+	"item": [
+		{
+			"name": "Agregar Persona",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"name\":\"Jesus\",\r\n    \"surname\": \"Puente\",\r\n    \"user\":\"Chuchip\",\r\n    \"password\":\"12345\",\r\n    \"company_email\":\"chuchip@mail.com\",\r\n    \"personal_email\":\"chuchip@bosonit.com\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/person",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Persona",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/person/id?id=63b097eca78ea52b626fd7dag",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"id"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "63b097eca78ea52b626fd7dag"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerTodasLasPersonas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/person/all?pageNumber=0&pageSize=4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"all"
+					],
+					"query": [
+						{
+							"key": "pageNumber",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Persona",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{   \"id\":\"63b097eca78ea52b626fd7da\",\r\n    \"name\":\"Jesus Javier\",\r\n    \"surname\": \"Puente\",\r\n    \"user\":\"chuchip\",\r\n    \"password\":\"0000\",\r\n    \"company_email\":\"chuchi1p@mail.com\",\r\n    \"personal_email\":\"chuchi1p@bosonit.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/person",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Persona",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/person/delete/id?id=63b097eca78ea52b626fd7da",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"person",
+						"delete",
+						"id"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "63b097eca78ea52b626fd7da"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
