@@ -11,6 +11,7 @@
         <module name="springdata" />
         <module name="block13-mongodb" />
         <module name="demo" />
+        <module name="Junit5" />
         <module name="Block8BasicTesting" />
         <module name="b-Statics" />
         <module name="demo (2)" />
