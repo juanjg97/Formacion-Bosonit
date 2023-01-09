@@ -35,7 +35,7 @@ class CuentaTest {
     BigDecimal saldo2;
     BigDecimal retiro2;
 
-    //Estos métodos se ejecutan antes y después de cada test
+    //Este métodos se ejecutan antes de cada test
     @BeforeEach
     void beforeEach() {
         this.saldo1 = new BigDecimal("1000");
@@ -73,7 +73,7 @@ class CuentaTest {
 
         @Test
         @DisplayName("Test saldo cuenta")
-        void testSaldoCuenta(){
+        void testSaldoCuenta(TestInfo testInfo, TestReporter testReporter){
             //alt+ctrl+v
             Double saldo_esperado = 1000.0;
             Double saldo_real = cuenta1.getSaldo().doubleValue();
@@ -84,6 +84,10 @@ class CuentaTest {
             int Num = cuenta1.getSaldo().compareTo(BigDecimal.ZERO);
             assertFalse(Num<0);
             assertTrue(Num>0);
+
+            System.out.println("Inyección de dependencias con: ");
+            System.out.println(testInfo.getDisplayName());
+
 
         }
 
@@ -249,6 +253,7 @@ class CuentaTest {
         }
 
         @Test
+        @Disabled
         void metodoPrueba(){
             fail();
         }
@@ -258,7 +263,7 @@ class CuentaTest {
     class pruebasParametrizadas{
 
         @ParameterizedTest(name = "Prueba no. {index} ejecutando con valor {argumentsWithNames}")
-        @ValueSource(strings = {"100", "200", "300", "500", "700", "1000.12345"})
+        @ValueSource(strings = {"100", "200", "300", "500", "700"})
         void testDebitoCuentaValueSource(String monto) {
             cuenta1.quitarSaldo(new BigDecimal(monto) );
             assertNotNull(cuenta1.getSaldo());

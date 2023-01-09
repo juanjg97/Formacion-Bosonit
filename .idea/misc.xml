@@ -56,6 +56,8 @@
         <option value="$PROJECT_DIR$/Bloque13/block13-mongodb/pom.xml" />
         <option value="$PROJECT_DIR$/Bloque8/Block8BasicTesting/pom.xml" />
         <option value="$PROJECT_DIR$/../Otros/Junit5/Junit5/pom.xml" />
+        <option value="$PROJECT_DIR$/mockito-app/pom.xml" />
+        <option value="$PROJECT_DIR$/Ejercicios-Java/mockito-app/pom.xml" />
       </list>
     </option>
   </component>

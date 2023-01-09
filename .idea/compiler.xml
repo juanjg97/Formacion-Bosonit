@@ -27,6 +27,7 @@
         <module name="block7-crud" />
         <module name="block10-dockerize-app" />
         <module name="block3-maven-package" />
+        <module name="mockito-app" />
         <module name="demo (1)" />
         <module name="block12-kafka" />
         <module name="demo (3)" />
