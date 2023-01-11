@@ -23,9 +23,9 @@ import java.util.stream.StreamSupport;
 @Table(name = "persona")
 @Getter
 @Setter
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
-public class Persona {
+public class Persona{
     @Id
     @GeneratedValue
     @Column(name = "id_usuario")
@@ -110,4 +110,37 @@ public class Persona {
         return personaFullOutput;
     }
 
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "id_usuario=" + id_usuario +
+                ", usuario='" + usuario + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", company_email='" + company_email + '\'' +
+                ", personal_email='" + personal_email + '\'' +
+                ", city='" + city + '\'' +
+                ", active=" + active +
+                ", created_date=" + created_date +
+                ", image_url='" + image_url + '\'' +
+                ", termination_date=" + termination_date +
+                ", student=" + student +
+                ", profesor=" + profesor +
+                '}';
+    }
+
+    public Persona() {
+        this.usuario = "";
+        this.password = "";
+        this.name = "";
+        this.surname = "";
+        this.company_email = "";
+        this.personal_email = "";
+        this.city = "";
+        this.active = false;
+        this.created_date = null;
+        this.image_url = "/a";
+        this.termination_date = null;
+    }
 }
