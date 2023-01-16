@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "8faefd0a-4bf3-4dc8-9b34-aaacc0846729",
+		"name": "Block15-Security",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24612743"
+	},
+	"item": [
+		{
+			"name": "allUsers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huQC5jb20iLCJleHAiOjE2NzQxNjA1NTksIm5hbWUiOiJKb2huIFRyYXZvbHRhIn0.ohb9R6giV5Jh7dhDAph56ycoZx4SWdGX2GZIRnH02P4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/usuarios",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"juan@mail.com\",\r\n    \"password\":\"abcd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
