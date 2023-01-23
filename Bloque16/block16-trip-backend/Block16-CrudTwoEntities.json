@@ -1,0 +1,320 @@
+{
+	"info": {
+		"_postman_id": "0e274a27-1773-49d6-9197-efabe25eef31",
+		"name": "Block16-Cloud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24612743"
+	},
+	"item": [
+		{
+			"name": "AddCliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"José\",\r\n    \"apellido\":\"Jasso\",\r\n    \"edad\":25,\r\n    \"email\":\"juan@mail.com\",\r\n    \"teléfono\":\"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/cliente/addcliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						"addcliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddViaje",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"origin\":\"Acapulco\",\r\n    \"destination\":\"Guadalajara\",\r\n    \"departureDate\":\"1-10-22\",\r\n    \"arrivalDate\":\"2-10-22\",\r\n    \"status\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/viaje/addTrip",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"viaje",
+						"addTrip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addPassenger",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/viaje/addPassenger/1/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"viaje",
+						"addPassenger",
+						"1",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getClientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/cliente/getall",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						"getall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getViajes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/viaje/allTrips",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"viaje",
+						"allTrips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/cliente/id/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						"id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getViaje",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/viaje/id/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"viaje",
+						"id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCountPassenger",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/viaje/countPassenger/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"viaje",
+						"countPassenger",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateCliente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idCliente\":1,\r\n    \"nombre\":\"Juan\",\r\n    \"apellido\":\"Garduño\",\r\n    \"edad\":25,\r\n    \"email\":\"juan@mail.com\",\r\n    \"teléfono\":\"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/cliente/updateCliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						"updateCliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateViaje",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idViaje\":1,\r\n    \"origin\":\"Morelia\",\r\n    \"destination\":\"Los ángeles\",\r\n    \"departureDate\":\"1-10-22\",\r\n    \"arrivalDate\":\"2-10-22\",\r\n    \"passenger\": \"Juanito\",\r\n    \"status\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/viaje/updateTrip",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"viaje",
+						"updateTrip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateStatus",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idViaje\":1,\r\n    \"origin\":\"Morelia\",\r\n    \"destination\":\"Toluca\",\r\n    \"departureDate\":\"1-10-22\",\r\n    \"arrivalDate\":\"2-10-22\",\r\n    \"passenger\": \"Juanito\",\r\n    \"status\": \"Active\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/viaje/updateStatus/1/false",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"viaje",
+						"updateStatus",
+						"1",
+						"false"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCliente",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/cliente/delete/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteViaje",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/viaje/delete/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"viaje",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
