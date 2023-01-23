@@ -1,14 +1,16 @@
 package com.bosonit.tripbackend.domain.entities;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+import org.springframework.boot.autoconfigure.web.WebProperties;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "viaje")
@@ -18,12 +20,25 @@ import javax.persistence.Table;
 @AllArgsConstructor
 public class Viaje {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idViaje")
     int idViaje;
+
+    @Column(name = "origin")
     String origin;
+
+    @Column(name = "destination")
     String destination;
+
+    @Column(name = "departureDate")
     String departureDate;
+
+    @Column(name = "arrivalDate")
     String arrivalDate;
-    String  passenger;
-    String  status;
+
+    @OneToMany
+    List<Cliente> passengers = new ArrayList<>();
+
+    @Column(name = "status")
+    Boolean  status;
 }

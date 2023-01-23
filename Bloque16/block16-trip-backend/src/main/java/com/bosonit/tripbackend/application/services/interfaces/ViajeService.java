@@ -11,4 +11,9 @@ public interface ViajeService {
     Iterable<ViajeOutput> getAllViajes(int pageNumber, int pageSize);
     ViajeOutput updateViaje(int idViaje, ViajeInput viajeInput);
     void deleteViajeById(int idViaje);
+    ViajeOutput addPassenger (int idViaje, int idPassenger);
+    int countPassengers(int idViaje);
+    void updateStatus(int idViaje, boolean status);
+
+
 }

@@ -2,11 +2,14 @@ package com.bosonit.tripbackend.application.services.implementations;
 
 import com.bosonit.tripbackend.Mappers.ViajeMapper;
 import com.bosonit.tripbackend.application.services.interfaces.ViajeService;
+import com.bosonit.tripbackend.domain.entities.Cliente;
 import com.bosonit.tripbackend.domain.entities.Viaje;
 import com.bosonit.tripbackend.dtos.ViajeOutput;
 import com.bosonit.tripbackend.dtos.ViajeInput;
 import com.bosonit.tripbackend.dtos.ViajeOutput;
+import com.bosonit.tripbackend.repositories.ClienteRepository;
 import com.bosonit.tripbackend.repositories.ViajeRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -16,9 +19,12 @@ import java.util.NoSuchElementException;
 import java.util.stream.StreamSupport;
 
 @Service
+@Slf4j
 public class ViajeServiceImp implements ViajeService {
     @Autowired
     ViajeRepository viajeRepository;
+    @Autowired
+    ClienteRepository clienteRepository;
 
     @Override
     public ViajeOutput addViaje(ViajeInput viajeInput) throws Exception {
@@ -53,7 +59,7 @@ public class ViajeServiceImp implements ViajeService {
         v.setIdViaje(viajeInput.getIdViaje());
         v.setOrigin(viajeInput.getOrigin());
         v.setStatus(viajeInput.getStatus());
-        v.setPassenger(viajeInput.getPassenger());
+        //v.setPassenger(viajeInput.getPassenger());
         v.setDestination(viajeInput.getDestination());
         v.setArrivalDate(viajeInput.getArrivalDate());
         v.setDepartureDate(viajeInput.getDepartureDate());
@@ -67,5 +73,34 @@ public class ViajeServiceImp implements ViajeService {
     public void deleteViajeById(int idViaje) {
             viajeRepository.findById(idViaje).orElseThrow();
             viajeRepository.deleteById(idViaje);
+    }
+
+    @Override
+    public ViajeOutput addPassenger(int idViaje, int idPassenger) {
+        Viaje viaje = viajeRepository.findById(idViaje).orElseThrow();
+        List<Cliente> passengers = viaje.getPassengers();
+        int numberOfPassengers = passengers.size();
+
+        if(numberOfPassengers>=3){
+            log.error("El viaje alcanzó el número máximo de pasajeros");
+            return null;
+        }else{
+            Cliente cliente = clienteRepository.findById(idPassenger).orElseThrow();
+            passengers.add(cliente);
+            return ViajeMapper.vMapper.ViajeToViajeOutput(viajeRepository.save(viaje));
+        }
+    }
+
+    @Override
+    public int countPassengers(int idViaje) {
+        Viaje viaje = viajeRepository.findById(idViaje).orElseThrow();
+        return viaje.getPassengers().size();
+    }
+
+    @Override
+    public void updateStatus(int idViaje, boolean status) {
+        Viaje viaje = viajeRepository.findById(idViaje).orElseThrow();
+        viaje.setStatus(status);
+        viajeRepository.save(viaje);
     }
 }

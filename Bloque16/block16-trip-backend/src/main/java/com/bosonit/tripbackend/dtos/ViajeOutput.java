@@ -1,6 +1,12 @@
 package com.bosonit.tripbackend.dtos;
 
+import ch.qos.logback.core.net.server.Client;
+import com.bosonit.tripbackend.domain.entities.Cliente;
 import lombok.*;
+
+import javax.persistence.Column;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Getter
 @Setter
@@ -13,6 +19,6 @@ public class ViajeOutput {
     String destination;
     String departureDate;
     String arrivalDate;
-    String  passenger;
-    String  status;
+    List<Cliente> passengers;
+    Boolean  status;
 }

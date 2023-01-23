@@ -15,7 +15,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class Cliente {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idCliente")
     int idCliente;
 
@@ -33,4 +33,8 @@ public class Cliente {
 
     @Column(name = "telefono")
     String teléfono;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idViaje")
+    Viaje viaje;
 }
