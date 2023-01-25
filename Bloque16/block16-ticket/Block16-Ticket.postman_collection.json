@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "610a0e43-1ed5-4cf6-99af-6dffe5d4fc9d",
+		"name": "Block16-Ticket",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24612743"
+	},
+	"item": [
+		{
+			"name": "generateTicket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/ticket/generateTicket/1/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ticket",
+						"generateTicket",
+						"1",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTicket",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

@@ -18,6 +18,7 @@
         <module name="demo (2)" />
         <module name="c-Wrapper" />
         <module name="demo (4)" />
+        <module name="block16-ticket" />
         <module name="block6-person-controllers" />
         <module name="block6-path-variable-headers" />
         <module name="block11-upload-download-files" />
@@ -48,7 +49,6 @@
       <module name="EjerciciosJava" target="19" />
       <module name="examen_JPA_cascada" target="19" />
       <module name="f-Lambdas" target="19" />
-      <module name="Junit5" target="19" />
       <module name="Statics" target="19" />
     </bytecodeTargetLevel>
   </component>
@@ -61,6 +61,7 @@
       <module name="block13-mongodb" options="-parameters" />
       <module name="block14-security" options="-parameters" />
       <module name="block15-security" options="-parameters" />
+      <module name="block16-ticket" options="-parameters" />
       <module name="block16-trip-backend" options="-parameters" />
       <module name="block5-command-line-runner" options="-parameters" />
       <module name="block5-profiles" options="-parameters" />

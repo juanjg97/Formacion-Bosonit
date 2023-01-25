@@ -1,21 +1,25 @@
-package com.bosonit.tripbackend;
+package com.bosonit.block16ticket;
 
-import com.bosonit.tripbackend.initial.data.DataClientesAndViajes;
+import com.bosonit.block16ticket.initial.data.CreateTickets;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
+@EnableFeignClients
 @SpringBootApplication
-public class TripBackendApplication implements CommandLineRunner {
+public class Block16TicketApplication implements CommandLineRunner {
 	@Autowired
-	DataClientesAndViajes dataClientesAndViajes;
+	CreateTickets createTickets;
+
+
 	public static void main(String[] args) {
-		SpringApplication.run(TripBackendApplication.class, args);
+		SpringApplication.run(Block16TicketApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		dataClientesAndViajes.createData();
+		createTickets.createData();
 	}
 }
