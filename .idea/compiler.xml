@@ -44,6 +44,7 @@
       <module name="a-AbstraccionInterfaces" target="19" />
       <module name="AbstraccionInterfaces" target="19" />
       <module name="block14-security" target="19" />
+      <module name="block16-trip-backend" target="17" />
       <module name="block5-profiles" target="19" />
       <module name="Bloque13" target="19" />
       <module name="Bloque7" target="19" />
@@ -82,6 +83,7 @@
       <module name="examen_jpa_cascade" options="-parameters" />
       <module name="springdata" options="-parameters" />
       <module name="springdata-validation" options="-parameters" />
+      <module name="trip-backend" options="-parameters" />
     </option>
   </component>
 </project>
