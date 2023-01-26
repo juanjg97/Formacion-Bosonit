@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  eureka-container:
+    build: ./block16-eureka
+    networks:
+      - cloudnetwork
+    ports:
+      - "8761:8761"
+
+  viaje-container:
+    build: ./block16-trip-backend
+    networks:
+      - cloudnetwork
+    ports:
+      - "8080:8080"
+    depends_on:
+      - eureka-container
+
+  ticket-container:
+    build: ./block16-ticket
+    networks:
+      - cloudnetwork
+    ports:
+      - "8081:8081"
+    depends_on:
+      - viaje-container
+      - eureka-container
+
+  gateway-container:
+    build: ./block16-gateway
+    networks:
+      - cloudnetwork
+    ports:
+      - "8083:8083"
+    depends_on:
+      - viaje-container
+      - eureka-container
+      - ticket-container
+networks:
+  cloudnetwork:
+    driver: bridge
