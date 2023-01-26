@@ -64,6 +64,10 @@
         <option value="$USER_HOME$/Downloads/Spring Initializer/trip-backend/pom.xml" />
         <option value="$PROJECT_DIR$/Bloque16/block16-trip-backend/pom.xml" />
         <option value="$USER_HOME$/Downloads/Spring Initializer/block16-ticket/pom.xml" />
+        <option value="$USER_HOME$/Downloads/Spring Initializer/block16-eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/Bloque16/block16-eureka/pom.xml" />
+        <option value="$USER_HOME$/Downloads/Spring Initializer/block16-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/Bloque16/block16-gateway/pom.xml" />
         <option value="$PROJECT_DIR$/Bloque16/block16-ticket/pom.xml" />
       </list>
     </option>

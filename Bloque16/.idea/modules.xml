@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Bloque16.iml" filepath="$PROJECT_DIR$/.idea/Bloque16.iml" />
+      <module fileurl="file://$PROJECT_DIR$/block16-eureka/block16-eureka.iml" filepath="$PROJECT_DIR$/block16-eureka/block16-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/block16-gateway/block16-gateway.iml" filepath="$PROJECT_DIR$/block16-gateway/block16-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/block16-ticket/block16-ticket.iml" filepath="$PROJECT_DIR$/block16-ticket/block16-ticket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/block16-trip-backend/trip-backend.iml" filepath="$PROJECT_DIR$/block16-trip-backend/trip-backend.iml" />
+    </modules>
+  </component>
+</project>

@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Ejercicios-Java/AbstraccionInterfaces/AbstraccionInterfaces.iml" filepath="$PROJECT_DIR$/Ejercicios-Java/AbstraccionInterfaces/AbstraccionInterfaces.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Formacion-Bosonit.iml" filepath="$PROJECT_DIR$/.idea/Formacion-Bosonit.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../Otros/Junit5/Junit5/Junit5.iml" filepath="$PROJECT_DIR$/../Otros/Junit5/Junit5/Junit5.iml" />
       <module fileurl="file://$PROJECT_DIR$/Ejercicios-Java/Statics/Statics.iml" filepath="$PROJECT_DIR$/Ejercicios-Java/Statics/Statics.iml" />
     </modules>
   </component>
